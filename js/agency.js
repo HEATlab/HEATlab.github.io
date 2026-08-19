@@ -27,3 +27,12 @@ $('.navbar-collapse ul li a').click(function() {
 
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// Initialize GLightbox
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true
+});
