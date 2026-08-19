@@ -957,3 +957,36 @@ ul.social-buttons li a:active {
 img::selection {
     background: transparent;
 }
+
+/* ==========================================================================
+   7. Aspect Ratio Grid Helpers
+   ========================================================================== */
+
+/* 4:3 Ratio Lock */
+.ratio.ratio-4x3,
+.portfolio-grid .ratio.ratio-4x3,
+.team-grid .ratio.ratio-4x3,
+#portfolio .ratio.ratio-4x3,
+#team .ratio.ratio-4x3 {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    padding-bottom: 75% !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.ratio img,
+.ratio.ratio-4x3 img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    float: none !important;
+    max-width: none !important;
+    max-height: none !important;
+}
