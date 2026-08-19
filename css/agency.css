@@ -756,7 +756,7 @@ aside.clients img {
 }
 
 /* Get Involved Section */
-section#involved {
+section#get-involved {
     background-color: var(--bs-dark);
     background-image: url(../img/map-image.png);
     background-position: center;
