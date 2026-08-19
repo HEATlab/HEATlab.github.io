@@ -8,12 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self' https:; 
-               script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdnjs.cloudflare.com; 
-               style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
-               font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; 
-               img-src 'self' data: https:; 
-               frame-src 'self' https://www.youtube.com https://collegerama.tudelft.nl;">
+        content="default-src 'self' https:; 
+           script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
+           style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.jsdelivr.net; 
+           font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; 
+           img-src 'self' data: https:; 
+           frame-src 'self' https://www.youtube.com https://collegerama.tudelft.nl;">
 
     <title>HEATlab</title>
 
@@ -35,6 +35,8 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62896222-1"></script>
@@ -78,13 +80,17 @@
                         <a class="page-scroll" href="#projects">Projects</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#publications">Publications</a>
+                        <a class="page-scroll" href="#photo-gallery">Photo Gallery</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#team">Team</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#involved">Get Involved</a>
+                        <a class="page-scroll" href="#publications">Publications</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="#get-involved">Get Involved</a>
                     </li>
                 </ul>
             </div>
@@ -141,7 +147,7 @@
 
                     
                     <h3 class="section-subheading text-muted"><p>Click on the project descriptions to learn about past projects to get a sense of what we do <br>
-                        Information about how to get involved can be found at the <a class="page-scroll" href="#involved"> bottom of this page </a>
+                        Information about how to get involved can be found at the <a class="page-scroll" href="#get-involved"> bottom of this page </a>
                         <br>
                         <br>
                     Please note: the HEATLab is unavailable positions for independent research, high school student interns or graduate students.</p>
@@ -288,7 +294,7 @@
 
                                                         <li class="timeline-inverted">
                                                             <div class="timeline-image">
-                                                                <a class="page-scroll" style="color:white" href="#involved">
+                                                                <a class="page-scroll" style="color:white" href="#get-involved">
                                                                     <h4>Your Idea
                                                                         <br>Could Be
                                                                         <br>Next!</h4></a>
@@ -301,9 +307,85 @@
                                             </section>
 
 
+<!-- Photo Gallery Section -->
+<section class="page-section py-5" id="photo-gallery">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-heading text-uppercase">Photo Gallery</h2>
+        </div>
 
-                                            <!-- Team Section -->
-                                            <section id="team" class="bg-light-gray">
+        <!-- Added g-3 gy-3 to ensure equal horizontal and vertical gap spacing -->
+        <div class="row g-3 gy-3 mt-3">
+            <!-- Photo 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab1.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab1.jpg" class="rounded shadow-sm" alt="HEATlab Team Photo" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab2.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab2.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 2" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab3.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab3.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 3" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab4.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab4.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 4" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 5 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab5.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab5.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 5" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 6 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab6.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab6.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 6" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+            <!-- Photo 7 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab7.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab7.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 7" style="width: 100%; height: 100%; object-fit: cover !important; object-position: 50% 25% !important;">
+                    </a>
+                </div>
+            </div>                       
+            <!-- Photo 8 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="ratio ratio-4x3">
+                    <a href="img/team/heatlab8.jpg" class="glightbox" data-gallery="heatlab">
+                        <img src="img/team/heatlab8.jpg" class="rounded shadow-sm" alt="HEATlab Research Photo 8" style="width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                                        
+<!-- Team Section -->
+<section id="team" class="bg-light-gray">
         <!-- <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -1065,7 +1147,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="involved">
+<section id="get-involved">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -1964,6 +2046,9 @@
            <!-- jQuery -->
            <script src="js/jquery.js"></script>
 
+            <!-- GLightbox JS -->
+            <script src="https://cdn.jsdelivr.net/gh/biati-digital/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+            
 
            <!-- Bootstrap Core JavaScript -->
            <script src="js/bootstrap.min.js"></script>
