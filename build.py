@@ -194,7 +194,7 @@ def degree_summary(alumni):
         return any(d.split(",")[0].split(" (")[0].strip().upper().replace(".", "") in kinds and ("in progress" in d) == ongoing
                    for d in a.get("degrees", []))
     phd = {"PHD"}
-    masters = {"MS", "MSC", "MENG", "MA", "MBA", "MPH", "MPP", "MFA", "MSE", "MASTERS", "MASTER'S"}
+    masters = {"MS", "MSC", "MENG", "MA", "MBA", "MBAN", "MPH", "MPP", "MFA", "MSE", "MASTERS", "MASTER'S"}
     n_phd = sum(has(a, phd, False) for a in alumni)
     n_phd_now = sum(has(a, phd, True) and not has(a, phd, False) for a in alumni)
     n_ms = sum(has(a, masters, False) for a in alumni)

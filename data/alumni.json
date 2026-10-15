@@ -10,8 +10,9 @@
         "MAD about Fluency"
       ],
       "photo": null,
-      "now": "Pave Finance",
-      "degrees": [],
+      "degrees": [
+        "MBAn (in progress), MIT Sloan"
+      ],
       "linkedin": "https://www.linkedin.com/in/julia-hansen-5613621a7"
     },
     {
@@ -329,7 +330,7 @@
         "Robot Brunch"
       ],
       "photo": "jordan.jpg",
-      "now": "Google",
+      "now": "Senior Software Engineer, Google",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/jordan-r-abrahams"
     },
@@ -354,7 +355,7 @@
         "HRI in Retail"
       ],
       "photo": "morgan.jpg",
-      "now": "Avarra",
+      "now": "Software Engineer, Avarra",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/aboutmorgan"
     },
@@ -422,7 +423,7 @@
         "PolyBots!"
       ],
       "photo": "amy.jpg",
-      "now": "Google",
+      "now": "Software Engineer",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/amy-huang-6a4996b0"
     },
@@ -489,7 +490,7 @@
         "Robot Brunch"
       ],
       "photo": "sam_d.png",
-      "now": "Microsoft",
+      "now": "FPGA Engineer, Microsoft",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/samuel-dietrich-9a54841ab"
     },
@@ -551,7 +552,7 @@
         "Human-Robot Teamwork"
       ],
       "photo": "kari.jpg",
-      "now": "Cloudflare",
+      "now": "Principal Design Lead, Cloudflare",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/kari-linder-957b7b74"
     },
@@ -617,7 +618,7 @@
         "Robot Brunch"
       ],
       "photo": "jeb.png",
-      "now": "Green Hills Software",
+      "now": "Embedded Support Consultant, Green Hills Software",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/robojeb"
     }
