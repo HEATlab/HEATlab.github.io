@@ -25,6 +25,23 @@ def save(im, path, width, quality=78):
         im.convert("RGB").save(path, quality=quality, optimize=True, progressive=True)
 
 
+def white_to_alpha(im):
+    """Make a white background transparent, keeping anti-aliased edges and exact colors
+    (each pixel becomes the least-transparent color that, over white, looks the same)."""
+    im = im.convert("RGBA")
+    px = im.load()
+    for y in range(im.height):
+        for x in range(im.width):
+            r, g, b, _ = px[x, y]
+            a = 255 - min(r, g, b)
+            if a == 0:
+                px[x, y] = (255, 255, 255, 0)
+            else:
+                f = 255 / a
+                px[x, y] = tuple(max(0, min(255, round(255 - (255 - c) * f))) for c in (r, g, b)) + (a,)
+    return im
+
+
 def square(im, size):
     """Center-crop to a square (biased toward the top, where faces are) and resize."""
     im = ImageOps.exif_transpose(im).convert("RGB")
@@ -35,7 +52,8 @@ def square(im, size):
 
 def main():
     save(Image.open(SRC / "heatlab-bg.jpg"), OUT / "hero.jpg", 2000, quality=72)
-    save(Image.open(SRC / "logos" / "HEATlab_logo.png"), OUT / "logo.png", 520)
+    logo = white_to_alpha(Image.open(SRC / "logos" / "HEATlab_logo.png"))
+    logo.resize((520, round(logo.height * 520 / logo.width)), Image.LANCZOS).save(OUT / "logo.png", optimize=True)
     save(Image.open(SRC / "logos" / "hmc.png"), OUT / "hmc.png", 240)
     themes = {"teamwork.jpg": "projects/conavigation_action.jpg", "uncertainty.png": "projects/prob_ctrl.png",
               "multirobot.jpg": "projects/robotbrunch_action.jpg"}
