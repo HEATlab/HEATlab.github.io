@@ -234,7 +234,8 @@ def main():
     else:
         text = subprocess.run(["curl", "-sfL", BIB_URL], check=True, capture_output=True, text=True).stdout
     bib = parse_bib(text)
-    alumni = json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8"))["alumni"]
+    data = json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8"))
+    alumni = data["alumni"]
     themes = json.loads((ROOT / "data" / "themes.json").read_text(encoding="utf-8"))["themes"]
     match = student_matcher(alumni)
     others = student_matcher(json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8")).get("other_student_authors", []))
@@ -274,7 +275,7 @@ def main():
         "N_COAUTHORS": str(len(coauthors)), "N_PAPERS": str(len(student_pubs)),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
         "THEMES": themes_html(themes, bib, match), "GALLERY": gallery_html(),
-        "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni), "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
+        "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
     }
     page = (ROOT / "template.html").read_text(encoding="utf-8")
     for k, v in fill.items():

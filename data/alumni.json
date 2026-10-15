@@ -1,5 +1,6 @@
 {
-  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, starting with the degree: ['PhD, Computer Science, Stanford'], ['MS, Robotics, CMU']; add '(in progress)' for current students: 'PhD (in progress), IEOR, UC Berkeley'. These drive the outcomes summary line. 'linkedin' = profile URL (adds a small LinkedIn icon). 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni).",
+  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, starting with the degree: ['PhD, Computer Science, Stanford'], ['MS, Robotics, CMU']; add '(in progress)' for current students: 'PhD (in progress), IEOR, UC Berkeley'. These drive the outcomes summary line. 'linkedin' = profile URL (adds a small LinkedIn icon). 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni). 'show_degree_summary' (top level): show the 'N have earned PhDs...' line; keep false until degrees are filled in for most alumni.",
+  "show_degree_summary": false,
   "alumni": [
     {
       "name": "Julia Hansen",
@@ -31,8 +32,9 @@
         "MAD about Fluency"
       ],
       "photo": "zeneve.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Associate Project Manager, Motivo",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/zenevejacotin"
     },
     {
       "name": "Eryn Ma",
@@ -46,7 +48,8 @@
       "degrees": [],
       "published_as": [
         "Yiran Ma"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/eryn-ma-656590205"
     },
     {
       "name": "Emily Weiss",
@@ -68,7 +71,8 @@
       ],
       "photo": null,
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/amy-yuan-319473125"
     },
     {
       "name": "Malia Morgan",
@@ -78,8 +82,9 @@
         "Improvisational Teamwork"
       ],
       "photo": "malia.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Predoctoral Young Investigator, AllenNLP, Ai2",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/malia-morgan-b5a8b0338"
     },
     {
       "name": "Julianna Schalkwyk",
@@ -89,8 +94,9 @@
         "Improvisational Teamwork"
       ],
       "photo": "julianna.jpeg",
-      "now": "",
-      "degrees": []
+      "now": "Graduate student, Georgia Tech",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/julianna-s-450b5713b"
     },
     {
       "name": "Ingrid Wu",
@@ -100,11 +106,12 @@
         "Improvisational Teamwork"
       ],
       "photo": "ingrid.jpg",
-      "now": "",
+      "now": "Research Assistant, MIT CSAIL",
       "degrees": [],
       "published_as": [
         "Siqi Wu"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/ingrid-siqi-w-361960234"
     },
     {
       "name": "Maya Abo Dominguez",
@@ -114,8 +121,9 @@
         "MAD about Fluency"
       ],
       "photo": "maya.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Software Engineer II, Data Engineering, Samba TV",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/maya-abo-dominguez"
     },
     {
       "name": "William La",
@@ -125,8 +133,9 @@
         "MAD about Fluency"
       ],
       "photo": "william.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Senior Software Engineer, Meta",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/la-william"
     },
     {
       "name": "Ryan Martinez",
@@ -147,8 +156,9 @@
         "Prob-in-Ctrl"
       ],
       "photo": "vibha.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Software Engineer, Google",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/vibha-rohilla"
     },
     {
       "name": "Yuki Wang",
@@ -158,11 +168,12 @@
         "Improvisational Teamwork"
       ],
       "photo": "yuki.jpeg",
-      "now": "",
+      "now": "Graduate student, Cornell University",
       "degrees": [],
       "published_as": [
         "Huaxiaoyue Wang"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/yukiwang-hw"
     },
     {
       "name": "Hannah Davalos",
@@ -173,7 +184,10 @@
       ],
       "photo": "hannah.png",
       "now": "",
-      "degrees": []
+      "degrees": [
+        "PhD (in progress), Industrial Engineering & Operations Research, UC Berkeley"
+      ],
+      "linkedin": "https://www.linkedin.com/in/hannah-davalos-726a4b1bb"
     },
     {
       "name": "Seth Isaacson",
@@ -184,7 +198,10 @@
       ],
       "photo": "seth.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [
+        "PhD (in progress), Robotics, University of Michigan"
+      ],
+      "linkedin": "https://www.linkedin.com/in/seth-isaacson"
     },
     {
       "name": "Lindsay Popowski",
@@ -195,7 +212,10 @@
       ],
       "photo": "lindsay.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [
+        "PhD (in progress), Computer Science, Stanford"
+      ],
+      "linkedin": "https://www.linkedin.com/in/lindsay-popowski-210448170"
     },
     {
       "name": "Savana Ammons",
@@ -205,8 +225,11 @@
         "Prob-in-Ctrl"
       ],
       "photo": "savana.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Computational Mathematician, Mobius Logic",
+      "degrees": [
+        "PhD"
+      ],
+      "linkedin": "https://www.linkedin.com/in/savana-ammons"
     },
     {
       "name": "Michael Gao",
@@ -297,7 +320,9 @@
       ],
       "photo": null,
       "now": "",
-      "degrees": []
+      "degrees": [
+        "PhD, Computer Science, MIT, 2024"
+      ]
     },
     {
       "name": "Morgan Frisby",
@@ -332,11 +357,12 @@
         "Acrobotics"
       ],
       "photo": "viva.jpg",
-      "now": "",
+      "now": "Senior Software Engineer, Bloomberg",
       "degrees": [],
       "published_as": [
         "Vivaswat Ojha"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/vivaswat-ojha-725464133"
     },
     {
       "name": "Brenner Ryan",
@@ -357,8 +383,9 @@
         "Human-Robot Teamwork"
       ],
       "photo": "brenda.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Licensed Mental Health Counselor, Good Therapy NYC",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/bvcastro"
     },
     {
       "name": "Amy Huang",
@@ -379,11 +406,12 @@
         "PolyBots!"
       ],
       "photo": "liam.jpg",
-      "now": "",
+      "now": "Senior Software Engineer, Permanent Legacy Foundation",
       "degrees": [],
       "published_as": [
         "William Lloyd"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/liam-lloyd-tucker-583613196"
     },
     {
       "name": "Montana Roberts",
@@ -415,8 +443,9 @@
         "Robot Brunch"
       ],
       "photo": "scott.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Principal Software Engineer, Berkshire Grey",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/chowscott"
     },
     {
       "name": "Sam Dietrich",
@@ -496,8 +525,9 @@
         "PaWPal"
       ],
       "photo": "emma.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Software Engineer, Google",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/emma-meersman-96380855"
     },
     {
       "name": "Priya Donti",
@@ -507,8 +537,11 @@
         "PaWPal"
       ],
       "photo": "priya.png",
-      "now": "",
-      "degrees": []
+      "now": "Assistant Professor, MIT EECS & LIDS",
+      "degrees": [
+        "PhD, Computer Science & Public Policy, Carnegie Mellon"
+      ],
+      "linkedin": "https://www.linkedin.com/in/priya-donti"
     },
     {
       "name": "Alex Gruver",
@@ -533,8 +566,9 @@
         "PaWPal"
       ],
       "photo": "honey.png",
-      "now": "",
-      "degrees": []
+      "now": "Machine Learning Engineer, Allegheny County Department of Human Services",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/rosenbloom-boom"
     },
     {
       "name": "Jeb Brooks",
@@ -544,8 +578,9 @@
         "Robot Brunch"
       ],
       "photo": "jeb.png",
-      "now": "",
-      "degrees": []
+      "now": "Green Hills Software",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/robojeb"
     }
   ],
   "other_student_authors": [
