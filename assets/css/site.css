@@ -2,7 +2,7 @@
 
 :root {
     --gold: #FDB913;
-    --gold-dark: #b8860b;
+    --gold-dark: #8a6400;   /* 5:1 contrast on all page backgrounds */
     --ink: #1d2126;
     --muted: #5b6370;
     --line: #e4e6ea;
