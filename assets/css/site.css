@@ -111,6 +111,8 @@ section { padding: 72px 0; }
 .alum p { margin: 0; font-size: .9rem; color: var(--muted); }
 .alum .alum-name { font-weight: 700; color: var(--ink); font-size: 1rem; }
 .alum .alum-now { color: var(--ink); margin-top: 4px; }
+.alum-linkedin { display: inline-flex; vertical-align: -2px; margin-left: 6px; color: #0a66c2; }
+.alum-linkedin:hover { color: var(--ink); }
 
 /* --- Publications --- */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }

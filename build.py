@@ -145,6 +145,13 @@ def themes_html(themes, bib, match):
     return "\n".join(out)
 
 
+# LinkedIn "in" logo (Simple Icons, CC0).
+LINKEDIN_PATH = ("M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05"
+                 "c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z"
+                 "M7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73"
+                 "V1.73C24 .77 23.2 0 22.22 0z")
+
+
 GALLERY_ALTS = [
     "HEATlab students wearing conference badges, posed around a stone sphere sculpture",
     "A student working on the wrist of a red robot arm in the lab",
@@ -179,8 +186,11 @@ def alumni_html(alumni):
             college = f' · {esc(COLLEGE_NAMES[a["college"]])}' if a.get("college") else ""
             now = f'<p class="alum-now">{esc(a["now"])}</p>' if a.get("now") else ""
             degrees = "".join(f'<p class="alum-degree">{esc(d)}</p>' for d in a.get("degrees", []))
+            linkedin = (f'<a class="alum-linkedin" href="{esc(a["linkedin"])}" aria-label="{esc(a["name"])} on LinkedIn">'
+                        f'<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="{LINKEDIN_PATH}"/></svg></a>'
+                        if a.get("linkedin") else "")
             cards.append(
-                f'{I}    <li class="alum">{avatar}<div><p class="alum-name">{esc(a["name"])}{college}</p>'
+                f'{I}    <li class="alum">{avatar}<div><p class="alum-name">{esc(a["name"])}{college}{linkedin}</p>'
                 f'<p class="alum-project">{esc(" · ".join(a["projects"]))}</p>{now}{degrees}</div></li>')
         out.append(f'{I}<h3 class="year">Class of {year}</h3>\n{I}<ul class="alumni">\n' + "\n".join(cards) + f"\n{I}</ul>")
     return "\n".join(out)
