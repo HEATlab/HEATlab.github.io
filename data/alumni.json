@@ -153,7 +153,10 @@
       ],
       "photo": "ryan.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [
+        "PhD (in progress), Mathematics (PDEs), UC Berkeley"
+      ],
+      "website": "https://ryanmart00.github.io/"
     },
     {
       "name": "Vibha Rohilla",
