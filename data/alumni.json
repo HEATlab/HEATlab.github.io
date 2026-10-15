@@ -49,11 +49,14 @@
       ],
       "photo": "eryn.jpg",
       "now": "",
-      "degrees": [],
+      "degrees": [
+        "PhD (in progress), Software and Societal Systems, Carnegie Mellon"
+      ],
       "published_as": [
         "Yiran Ma"
       ],
-      "linkedin": "https://www.linkedin.com/in/eryn-ma-656590205"
+      "linkedin": "https://www.linkedin.com/in/eryn-ma-656590205",
+      "website": "https://eryn-y.github.io/"
     },
     {
       "name": "Emily Weiss",
@@ -78,7 +81,9 @@
       ],
       "photo": null,
       "now": "",
-      "degrees": [],
+      "degrees": [
+        "MS (in progress), Computer Science, University of Illinois Urbana-Champaign"
+      ],
       "linkedin": "https://www.linkedin.com/in/amy-yuan-319473125"
     },
     {
@@ -250,7 +255,7 @@
         "Ctrl-Alt-Repeat"
       ],
       "photo": "michael.jpg",
-      "now": "",
+      "now": "AI/ML Engineering Lead, Adobe",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/michael-gao-0217a3133"
     },
@@ -288,7 +293,7 @@
         "MAD about Fluency"
       ],
       "photo": null,
-      "now": "",
+      "now": "Senior Member of Technical Staff, Salesforce",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/athena-p-599b81127"
     },
@@ -312,7 +317,7 @@
         "MAD about Fluency"
       ],
       "photo": "gretchen.jpg",
-      "now": "",
+      "now": "Prevention education; former Fulbright English Teaching Assistant, Taiwan",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/gretchen-r-74176b142"
     },
@@ -362,7 +367,9 @@
       ],
       "photo": "maggie.jpg",
       "now": "",
-      "degrees": [],
+      "degrees": [
+        "PhD (in progress), Operations Research, Cornell"
+      ],
       "published_as": [
         "Hemeng Li"
       ],
@@ -391,7 +398,7 @@
         "Robot Brunch"
       ],
       "photo": "brenner.jpg",
-      "now": "",
+      "now": "Software Engineer, Carlson Medical Technologies",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/brenner-ryan-524532115"
     },
@@ -442,7 +449,7 @@
         "Human-Robot Teamwork"
       ],
       "photo": "montana.jpg",
-      "now": "",
+      "now": "Security, Datadog",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/montanaroberts"
     },
@@ -583,7 +590,7 @@
         "Robot Brunch"
       ],
       "photo": "alex.png",
-      "now": "",
+      "now": "Co-Founder, Jhourney",
       "degrees": [],
       "published_as": [
         "Alexander Gruver"
