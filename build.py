@@ -186,6 +186,12 @@ def initials(name):
     return (parts[0][0] + parts[-1][0]).upper()
 
 
+def phd_count(alumni):
+    """Alumni with a PhD, completed or in progress."""
+    return sum(any(d.split(",")[0].split(" (")[0].strip().upper().replace(".", "") == "PHD" for d in a.get("degrees", []))
+               for a in alumni)
+
+
 def degree_summary(alumni):
     """'N alumni have earned PhDs, ...' from the degrees field; empty until there is data.
     Degree strings start with the degree: 'PhD, ...', 'MS, ...', 'MEng, ...', 'MA, ...', 'MBA, ...';
@@ -287,7 +293,7 @@ def main():
     colleges = sorted({a.get("college") for a in alumni}, key=lambda c: (c is not None, COLLEGE_NAMES[c]))
     fill = {
         "N_ALUMNI": str(len(alumni)), "FIRST_YEAR": str(min(a["year"] for a in alumni)),
-        "N_COAUTHORS": str(len(coauthors)), "N_PAPERS": str(len(student_pubs)),
+        "N_COAUTHORS": str(len(coauthors)), "N_PHD": str(phd_count(alumni)), "N_PAPERS": str(len(student_pubs)),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
         "THEMES": themes_html(themes, bib, match), "GALLERY": gallery_html(),
         "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),

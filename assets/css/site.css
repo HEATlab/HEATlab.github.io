@@ -57,6 +57,7 @@ section { padding: 72px 0; }
 
 /* --- Students band --- */
 .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+@media (max-width: 719px) { .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } }  /* phones: 2 columns, last card spans */
 .stat { background: var(--card); border-radius: var(--radius); padding: 18px 20px; border: 1px solid var(--line); }
 .stat strong { display: block; font-size: 2.2rem; line-height: 1.1; color: var(--ink); }
 .stat strong::after { content: ""; display: block; width: 28px; height: 3px; background: var(--gold); margin: 8px 0 6px; }
@@ -156,12 +157,13 @@ section { padding: 72px 0; }
 
 /* --- Larger screens --- */
 @media (min-width: 720px) {
-    .stats { grid-template-columns: repeat(4, 1fr); }
+    .stats { grid-template-columns: repeat(3, 1fr); }
     .students-body { grid-template-columns: 1.1fr 1fr; gap: 48px; }
     .gallery { grid-template-columns: repeat(4, 1fr); }
     .alumni { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1000px) {
+    .stats { grid-template-columns: repeat(5, 1fr); }
     .themes { grid-template-columns: repeat(3, 1fr); }
     .alumni { grid-template-columns: repeat(3, 1fr); }
 }
