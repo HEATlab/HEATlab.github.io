@@ -1,0 +1,550 @@
+{
+  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, e.g. ['PhD, Computer Science, Stanford']. 'published_as' = other names on papers (for bolding student authors).",
+  "alumni": [
+    {
+      "name": "Julia Hansen",
+      "year": 2025,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Rosy Chen",
+      "year": 2024,
+      "college": null,
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Alex Fay",
+      "year": 2024,
+      "college": "Pomona",
+      "projects": [
+        "STNs for Multi-Agent Path Finding"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Zeneve Jacotin",
+      "year": 2024,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "zeneve.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Eryn Ma",
+      "year": 2024,
+      "college": "Pomona",
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": "eryn.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Emily Weiss",
+      "year": 2024,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Amy Yuan",
+      "year": 2024,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Malia Morgan",
+      "year": 2023,
+      "college": null,
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": "malia.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Julianna Schalkwyk",
+      "year": 2023,
+      "college": null,
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": "julianna.jpeg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Ingrid Wu",
+      "year": 2023,
+      "college": null,
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": "ingrid.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Maya Abo Dominguez",
+      "year": 2022,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "maya.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "William La",
+      "year": 2022,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "william.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Ryan Martinez",
+      "year": 2022,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": "ryan.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Vibha Rohilla",
+      "year": 2022,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": "vibha.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Yuki Wang",
+      "year": 2022,
+      "college": null,
+      "projects": [
+        "Improvisational Teamwork"
+      ],
+      "photo": "yuki.jpeg",
+      "now": "",
+      "degrees": [],
+      "published_as": [
+        "Huaxiaoyue Wang"
+      ]
+    },
+    {
+      "name": "Hannah Davalos",
+      "year": 2021,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": "hannah.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Seth Isaacson",
+      "year": 2021,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "seth.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Lindsay Popowski",
+      "year": 2021,
+      "college": null,
+      "projects": [
+        "Ctrl-Alt-Repeat"
+      ],
+      "photo": "lindsay.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Savana Ammons",
+      "year": 2020,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": "savana.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Michael Gao",
+      "year": 2020,
+      "college": null,
+      "projects": [
+        "Ctrl-Alt-Repeat"
+      ],
+      "photo": "michael.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Joon Lee",
+      "year": 2020,
+      "college": null,
+      "projects": [
+        "Acrobotics"
+      ],
+      "photo": "joon.jpg",
+      "now": "",
+      "degrees": [],
+      "published_as": [
+        "Joon Young Lee"
+      ]
+    },
+    {
+      "name": "Tiffany Madruga",
+      "year": 2020,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "tiffany.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Athena Paraskevas-Nevius",
+      "year": 2020,
+      "college": null,
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Megan Robalewski",
+      "year": 2020,
+      "college": "Scripps",
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "megan.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Gretchen Rice",
+      "year": 2020,
+      "college": "Olin",
+      "projects": [
+        "MAD about Fluency"
+      ],
+      "photo": "gretchen.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Jordan Abrahams",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "jordan.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Shyan Akmal",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": null,
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Morgan Frisby",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "HRI in Retail"
+      ],
+      "photo": "morgan.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Maggie Li",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "Prob-in-Ctrl"
+      ],
+      "photo": "maggie.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Viva Ojha",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "Acrobotics"
+      ],
+      "photo": "viva.jpg",
+      "now": "",
+      "degrees": [],
+      "published_as": [
+        "Vivaswat Ojha"
+      ]
+    },
+    {
+      "name": "Brenner Ryan",
+      "year": 2019,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "brenner.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Brenda Castro",
+      "year": 2018,
+      "college": null,
+      "projects": [
+        "Human-Robot Teamwork"
+      ],
+      "photo": "brenda.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Amy Huang",
+      "year": 2018,
+      "college": null,
+      "projects": [
+        "PolyBots!"
+      ],
+      "photo": "amy.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Liam Lloyd",
+      "year": 2018,
+      "college": null,
+      "projects": [
+        "PolyBots!"
+      ],
+      "photo": "liam.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Montana Roberts",
+      "year": 2018,
+      "college": "Scripps",
+      "projects": [
+        "Human-Robot Teamwork"
+      ],
+      "photo": "montana.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Jane Wu",
+      "year": 2018,
+      "college": null,
+      "projects": [
+        "Human-Robot Teamwork"
+      ],
+      "photo": "jane.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Scott Chow",
+      "year": 2017,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "scott.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Sam Dietrich",
+      "year": 2017,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "sam_d.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Kyle Lund",
+      "year": 2017,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "kyle.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Erin Paeng",
+      "year": 2017,
+      "college": null,
+      "projects": [
+        "Human-Robot Teamwork"
+      ],
+      "photo": "erin.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Emi Reed",
+      "year": 2017,
+      "college": null,
+      "projects": [
+        "Robot Brunch",
+        "PaWPal"
+      ],
+      "photo": "emi.png",
+      "now": "",
+      "degrees": [],
+      "published_as": [
+        "Emilia Reed"
+      ]
+    },
+    {
+      "name": "Sam Echevarria",
+      "year": 2016,
+      "college": null,
+      "projects": [
+        "PaWPal"
+      ],
+      "photo": "sam_e.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Kari Linder",
+      "year": 2016,
+      "college": "CMC",
+      "projects": [
+        "Human-Robot Teamwork"
+      ],
+      "photo": "kari.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Emma Meersman",
+      "year": 2016,
+      "college": null,
+      "projects": [
+        "PaWPal"
+      ],
+      "photo": "emma.jpg",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Priya Donti",
+      "year": 2015,
+      "college": null,
+      "projects": [
+        "PaWPal"
+      ],
+      "photo": "priya.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Alex Gruver",
+      "year": 2015,
+      "college": null,
+      "projects": [
+        "PaWPal",
+        "Robot Brunch"
+      ],
+      "photo": "alex.png",
+      "now": "",
+      "degrees": [],
+      "published_as": [
+        "Alexander Gruver"
+      ]
+    },
+    {
+      "name": "Honey Rosenbloom",
+      "year": 2015,
+      "college": null,
+      "projects": [
+        "PaWPal"
+      ],
+      "photo": "honey.png",
+      "now": "",
+      "degrees": []
+    },
+    {
+      "name": "Jeb Brooks",
+      "year": 2014,
+      "college": null,
+      "projects": [
+        "Robot Brunch"
+      ],
+      "photo": "jeb.png",
+      "now": "",
+      "degrees": []
+    }
+  ]
+}

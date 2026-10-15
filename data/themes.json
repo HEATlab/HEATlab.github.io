@@ -1,0 +1,80 @@
+{
+  "_note": "Research themes shown on the page. 'papers' are .bib keys from Jim's boerkoel_pubs.bib; they decide which papers each theme's publication filter shows. 'topic' is the matching .bib topics tag, for reference.",
+  "themes": [
+    {
+      "id": "teamwork",
+      "title": "Human-robot teamwork",
+      "topic": "hri",
+      "image": "teamwork.jpg",
+      "image_alt": "A NAO humanoid robot on a desk while a student works at a computer",
+      "blurb": "How should robots and AI agents share work with people? We build scheduling approaches for mixed human-robot teams and test them with real people and real robots, measuring trust, fluency, and who should take the lead.",
+      "projects": [
+        {
+          "name": "CHAI: Cultivating Human-Agent Interactions",
+          "text": "As collaborative robots become commonplace, creating schedules for human-robot teamwork will be crucial. This project tested scheduling algorithms developed for robot teams on human-robot teams, using Rethink Robotics' Sawyer to study how people and robots complete tasks together, and how human autonomy affects a team's productivity.",
+          "papers": ["castro2017who"]
+        },
+        {
+          "name": "Human-Robot Trust",
+          "text": "How much a person trusts a robot shapes how they interact with it. Using a coin entrustment game (a variant of the prisoner's dilemma) and our NAO robot, we measured trust and cooperation as separate phenomena, comparing how people treat robots versus other humans.",
+          "papers": ["wu2016trust", "wu2016exploring", "paeng2016exploring"]
+        },
+        {
+          "name": "MAD about Fluency",
+          "text": "What makes a human-robot collaboration feel fluent? We built MAD-TN, a tool for measuring fluency, and used it to study human temporal uncertainty and the fluency of human-robot interactions.",
+          "papers": ["isaacson2019madtn", "dominguez2020modeling", "weiss2023analyzing"]
+        },
+        {
+          "name": "Improvisational Teamwork",
+          "text": "Simple temporal networks that let people and agents coordinate on the fly, plus analysis of how dynamic control holds up when uncertainty is skewed.",
+          "papers": ["morgan2022simple", "morgan2022simpleworkshop", "chen2023sensitivity"]
+        },
+        {
+          "name": "PaWPal: Productivity and Wellness Pal",
+          "text": "College students often struggle to balance work with wellness. PaWPal, an Android app, used experience sampling to model when users are most likely to experience flow and to nudge them toward more productive, immersive work. It was the precursor to the campus-wide Workload and Health at Mudd (WHAM!) study.",
+          "papers": ["donti2015predicting", "donti2014exploring"]
+        }
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "title": "Plans that survive the real world",
+      "topic": "temporal",
+      "image": "uncertainty.png",
+      "image_alt": "A simple temporal network diagram next to the 3D polytope of its possible schedules",
+      "blurb": "Robots slip and people run late. We develop the math and algorithms behind temporal plans that stay flexible, durable, and controllable when things don't go as expected.",
+      "projects": [
+        {
+          "name": "Probably-in-Control",
+          "text": "Sometimes scheduling uncertainty outstrips an agent's ability to control for it. We developed analytical tools for the “degree of controllability”: the likelihood that an agent, such as a robot, can still control for uncertainty caused by slippage or localization error.",
+          "papers": ["akmal2019quantifying", "akmal2020quantifying"]
+        },
+        {
+          "name": "Ctrl-Alt-Repeat",
+          "text": "Dynamic control strategies for probabilistic simple temporal networks: deciding when to act as uncertain events unfold.",
+          "papers": ["gao2020dynamic"]
+        },
+        {
+          "name": "PolyBots & Acrobotics",
+          "text": "The constraints in a temporal plan define a polytope bounding the space of possible schedules, and its geometry says something about the plan. PolyBots used geometric properties to quantify a plan's flexibility; Acrobotics introduced “durability,” a measure of a schedule's resilience to disturbances.",
+          "papers": ["huang2018new", "lee2019measuring"]
+        }
+      ]
+    },
+    {
+      "id": "multirobot",
+      "title": "Multi-robot coordination",
+      "topic": "multiagent",
+      "image": "multirobot.jpg",
+      "image_alt": "Two students on the lab floor setting up a small wheeled robot inside a taped-off course",
+      "blurb": "When a team of robots shares a plan, every delay ripples. We study how robots can schedule robust interactions, and how much communication and rescheduling that really takes.",
+      "projects": [
+        {
+          "name": "Robot Brunch & DREAM",
+          "text": "We want multi-robot plans that adapt to events beyond the robots' control, like slippage or sensor failures. This project introduced robustness, the likelihood that a multi-robot plan succeeds, and DREAM, a single streamlined algorithm that trades robustness against computational overhead, including multi-agent communication.",
+          "papers": ["brooks2015robustness", "lund2016robustmulti", "lund2016robustexecution", "lund2017robust", "chu2018tradeoffs", "abrahams2019dream"]
+        }
+      ]
+    }
+  ]
+}
