@@ -120,6 +120,7 @@ section { padding: 72px 0; }
 .alum .alum-degree::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.8c0 1.7 3.1 4 7 4s7-2.3 7-4v-3.8l-7 3.8-7-3.8z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.8c0 1.7 3.1 4 7 4s7-2.3 7-4v-3.8l-7 3.8-7-3.8z'/%3E%3C/svg%3E") center / contain no-repeat; }
 .alum-linkedin { display: inline-flex; vertical-align: -2px; margin-left: 6px; color: #0a66c2; }
 .alum-linkedin:hover { color: var(--ink); }
+.alum-web { color: var(--gold-dark); }
 
 /* --- Publications --- */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }

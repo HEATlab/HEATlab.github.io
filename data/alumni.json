@@ -1,5 +1,5 @@
 {
-  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, starting with the degree: ['PhD, Computer Science, Stanford'], ['MS, Robotics, CMU']; add '(in progress)' for current students: 'PhD (in progress), IEOR, UC Berkeley'. These drive the outcomes summary line. 'linkedin' = profile URL (adds a small LinkedIn icon). 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni). 'show_degree_summary' (top level): show the 'N have earned PhDs...' line; keep false until degrees are filled in for most alumni.",
+  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, starting with the degree: ['PhD, Computer Science, Stanford'], ['MS, Robotics, CMU']; add '(in progress)' for current students: 'PhD (in progress), IEOR, UC Berkeley'. These drive the outcomes summary line. 'linkedin' = profile URL (adds a small LinkedIn icon). 'website' = personal site (adds a small globe icon). 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni). 'show_degree_summary' (top level): show the 'N have earned PhDs...' line; keep false until degrees are filled in for most alumni.",
   "show_degree_summary": false,
   "alumni": [
     {
@@ -10,8 +10,9 @@
         "MAD about Fluency"
       ],
       "photo": null,
-      "now": "",
-      "degrees": []
+      "now": "Pave Finance",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/julia-hansen-5613621a7"
     },
     {
       "name": "Rosy Chen",
@@ -22,7 +23,10 @@
       ],
       "photo": null,
       "now": "",
-      "degrees": []
+      "degrees": [
+        "MS (in progress), Computer Science, Carnegie Mellon"
+      ],
+      "website": "https://rdchen0501.github.io/"
     },
     {
       "name": "Zeneve Jacotin",
@@ -215,7 +219,8 @@
       "degrees": [
         "PhD (in progress), Computer Science, Stanford"
       ],
-      "linkedin": "https://www.linkedin.com/in/lindsay-popowski-210448170"
+      "linkedin": "https://www.linkedin.com/in/lindsay-popowski-210448170",
+      "website": "https://lipopowski.github.io/"
     },
     {
       "name": "Savana Ammons",
@@ -240,7 +245,8 @@
       ],
       "photo": "michael.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/michael-gao-0217a3133"
     },
     {
       "name": "Joon Lee",
@@ -308,8 +314,9 @@
         "Robot Brunch"
       ],
       "photo": "jordan.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Google",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/jordan-r-abrahams"
     },
     {
       "name": "Shyan Akmal",
@@ -455,8 +462,9 @@
         "Robot Brunch"
       ],
       "photo": "sam_d.png",
-      "now": "",
-      "degrees": []
+      "now": "Microsoft",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/samuel-dietrich-9a54841ab"
     },
     {
       "name": "Kyle Lund",
@@ -467,7 +475,8 @@
       ],
       "photo": "kyle.png",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/kyle-t-lund"
     },
     {
       "name": "Erin Paeng",
@@ -514,8 +523,9 @@
         "Human-Robot Teamwork"
       ],
       "photo": "kari.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Cloudflare",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/kari-linder-957b7b74"
     },
     {
       "name": "Emma Meersman",
