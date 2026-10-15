@@ -283,7 +283,8 @@
       ],
       "photo": null,
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/athena-p-599b81127"
     },
     {
       "name": "Megan Robalewski",
@@ -294,7 +295,8 @@
       ],
       "photo": "megan.png",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/meganrobalewski"
     },
     {
       "name": "Gretchen Rice",
@@ -305,7 +307,8 @@
       ],
       "photo": "gretchen.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/gretchen-r-74176b142"
     },
     {
       "name": "Jordan Abrahams",
@@ -340,8 +343,9 @@
         "HRI in Retail"
       ],
       "photo": "morgan.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Avarra",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/aboutmorgan"
     },
     {
       "name": "Maggie Li",
@@ -355,7 +359,8 @@
       "degrees": [],
       "published_as": [
         "Hemeng Li"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/hemeng-li-535a04295"
     },
     {
       "name": "Viva Ojha",
@@ -381,7 +386,8 @@
       ],
       "photo": "brenner.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/brenner-ryan-524532115"
     },
     {
       "name": "Brenda Castro",
@@ -403,8 +409,9 @@
         "PolyBots!"
       ],
       "photo": "amy.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Google",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/amy-huang-6a4996b0"
     },
     {
       "name": "Liam Lloyd",
@@ -430,7 +437,8 @@
       ],
       "photo": "montana.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/montanaroberts"
     },
     {
       "name": "Jane Wu",
@@ -440,8 +448,11 @@
         "Human-Robot Teamwork"
       ],
       "photo": "jane.jpg",
-      "now": "",
-      "degrees": []
+      "now": "Postdoctoral Fellow, EECS, UC Berkeley",
+      "degrees": [
+        "PhD, Computer Science, Stanford"
+      ],
+      "website": "https://janehwu.github.io/"
     },
     {
       "name": "Scott Chow",
@@ -505,7 +516,8 @@
       "degrees": [],
       "published_as": [
         "Emilia Reed"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/emi-reed-439b00132"
     },
     {
       "name": "Sam Echevarria",
@@ -569,7 +581,8 @@
       "degrees": [],
       "published_as": [
         "Alexander Gruver"
-      ]
+      ],
+      "linkedin": "https://www.linkedin.com/in/alex-gruver-a3a73aa3"
     },
     {
       "name": "Honey Rosenbloom",
