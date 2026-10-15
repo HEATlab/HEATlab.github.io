@@ -48,7 +48,8 @@ section { padding: 72px 0; }
 .hero-inner { max-width: var(--wrap); }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; font-weight: 700; color: var(--gold); margin-bottom: .6rem; }
 .hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); max-width: 14ch; letter-spacing: -.02em; }
-.hero-lead { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 34ch; opacity: .95; margin-bottom: 1.6rem; }
+.hero-lead { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 46ch; opacity: .95; margin-bottom: 1.6rem; }
+.hero-sub { display: inline-block; margin-top: .5rem; font-size: .9em; color: #ffe08a; }
 .status-pill { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); background: #fff; text-decoration: none;
     font-weight: 600; font-size: .95rem; padding: 8px 16px; border-radius: 999px; }
 .status-pill:hover { color: var(--ink); background: #fff7df; }
