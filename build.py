@@ -198,10 +198,12 @@ def degree_summary(alumni):
     n_phd = sum(has(a, phd, False) for a in alumni)
     n_phd_now = sum(has(a, phd, True) and not has(a, phd, False) for a in alumni)
     n_ms = sum(has(a, masters, False) for a in alumni)
+    n_ms_now = sum(has(a, masters, True) and not has(a, masters, False) for a in alumni)
     one = lambda n, a, b: a if n == 1 else b
     parts = [f"<strong>{n_phd}</strong> {one(n_phd, 'has earned a PhD', 'have earned PhDs')}" if n_phd else "",
              f"<strong>{n_ms}</strong> {one(n_ms, 'has earned a master’s degree', 'have earned master’s degrees')}" if n_ms else "",
-             f"<strong>{n_phd_now}</strong> {one(n_phd_now, 'is in a PhD program now', 'are in PhD programs now')}" if n_phd_now else ""]
+             f"<strong>{n_phd_now}</strong> {one(n_phd_now, 'is in a PhD program now', 'are in PhD programs now')}" if n_phd_now else "",
+             f"<strong>{n_ms_now}</strong> {one(n_ms_now, 'is in a master’s program', 'are in master’s programs')}" if n_ms_now else ""]
     parts = [p for p in parts if p]
     if not parts:
         return ""

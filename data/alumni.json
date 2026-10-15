@@ -1,6 +1,6 @@
 {
   "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, starting with the degree: ['PhD, Computer Science, Stanford'], ['MS, Robotics, CMU']; add '(in progress)' for current students: 'PhD (in progress), IEOR, UC Berkeley'. These drive the outcomes summary line. 'linkedin' = profile URL (adds a small LinkedIn icon). 'website' = personal site (adds a small globe icon). 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni). 'show_degree_summary' (top level): show the 'N have earned PhDs...' line; keep false until degrees are filled in for most alumni.",
-  "show_degree_summary": false,
+  "show_degree_summary": true,
   "alumni": [
     {
       "name": "Julia Hansen",
