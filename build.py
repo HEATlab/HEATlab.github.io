@@ -176,6 +176,29 @@ def initials(name):
     return (parts[0][0] + parts[-1][0]).upper()
 
 
+def degree_summary(alumni):
+    """'N alumni have earned PhDs, ...' from the degrees field; empty until there is data.
+    Degree strings start with the degree: 'PhD, ...', 'MS, ...', 'MEng, ...', 'MA, ...', 'MBA, ...';
+    add '(in progress)' for current students, e.g. 'PhD (in progress), Robotics, Michigan'."""
+    def has(a, kinds, ongoing):
+        return any(d.split(",")[0].split(" (")[0].strip().upper().replace(".", "") in kinds and ("in progress" in d) == ongoing
+                   for d in a.get("degrees", []))
+    phd = {"PHD"}
+    masters = {"MS", "MSC", "MENG", "MA", "MBA", "MPH", "MPP", "MFA", "MSE", "MASTERS", "MASTER'S"}
+    n_phd = sum(has(a, phd, False) for a in alumni)
+    n_phd_now = sum(has(a, phd, True) and not has(a, phd, False) for a in alumni)
+    n_ms = sum(has(a, masters, False) for a in alumni)
+    one = lambda n, a, b: a if n == 1 else b
+    parts = [f"<strong>{n_phd}</strong> {one(n_phd, 'has earned a PhD', 'have earned PhDs')}" if n_phd else "",
+             f"<strong>{n_ms}</strong> {one(n_ms, 'has earned a master’s degree', 'have earned master’s degrees')}" if n_ms else "",
+             f"<strong>{n_phd_now}</strong> {one(n_phd_now, 'is in a PhD program now', 'are in PhD programs now')}" if n_phd_now else ""]
+    parts = [p for p in parts if p]
+    if not parts:
+        return ""
+    text = parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + (", and " if len(parts) > 2 else " and ") + parts[-1]
+    return f'{I}<p class="outcomes">Of our alumni, {text}.</p>'
+
+
 def alumni_html(alumni):
     out = []
     for year in sorted({a["year"] for a in alumni}, reverse=True):
@@ -242,7 +265,7 @@ def main():
         "N_COAUTHORS": str(len(coauthors)), "N_PAPERS": str(len(student_pubs)),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
         "THEMES": themes_html(themes, bib, match), "GALLERY": gallery_html(),
-        "ALUMNI": alumni_html(alumni), "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
+        "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni), "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
     }
     page = (ROOT / "template.html").read_text(encoding="utf-8")
     for k, v in fill.items():
