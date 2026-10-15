@@ -1,4 +1,4 @@
-// HEATlab site behavior: click-to-load video, photo lightbox, publication theme filter.
+// HEATlab site behavior: click-to-load video, photo album, publication theme filter.
 // Everything works without JavaScript too (the video and photos just open as links/thumbnails).
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,19 +14,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
     });
 
-    // Lightbox for the photo gallery.
+    // Photo album: click a photo to open it; arrows, arrow keys, or swiping move through the album.
     const box = document.querySelector('.lightbox');
     if (box && box.showModal) {
         const img = box.querySelector('img');
-        document.querySelectorAll('.gallery-item').forEach(a => {
-            a.addEventListener('click', ev => {
-                ev.preventDefault();
-                img.src = a.href;
-                img.alt = a.querySelector('img').alt;
-                box.showModal();
-            });
+        const caption = box.querySelector('.lightbox-caption');
+        const count = box.querySelector('.lightbox-count');
+        const items = [...document.querySelectorAll('.gallery-item')];
+        let current = 0;
+        function show(i) {
+            current = (i + items.length) % items.length;
+            const a = items[current], alt = a.querySelector('img').alt;
+            img.src = a.href;
+            img.alt = alt;
+            caption.textContent = alt;
+            count.textContent = `${current + 1} / ${items.length}`;
+            // Preload the neighbors so moving through the album is instant.
+            [current - 1, current + 1].forEach(n => { new Image().src = items[(n + items.length) % items.length].href; });
+        }
+        items.forEach((a, i) => a.addEventListener('click', ev => {
+            ev.preventDefault();
+            show(i);
+            box.showModal();
+        }));
+        box.querySelector('.lightbox-prev').addEventListener('click', () => show(current - 1));
+        box.querySelector('.lightbox-next').addEventListener('click', () => show(current + 1));
+        box.querySelector('.lightbox-close').addEventListener('click', () => box.close());
+        box.addEventListener('click', ev => { if (ev.target === box || ev.target.classList.contains('lightbox-figure')) box.close(); });
+        box.addEventListener('keydown', ev => {
+            if (ev.key === 'ArrowLeft') show(current - 1);
+            if (ev.key === 'ArrowRight') show(current + 1);
         });
-        box.addEventListener('click', ev => { if (ev.target !== img) box.close(); });
+        let startX = null;
+        box.addEventListener('touchstart', ev => { startX = ev.touches[0].clientX; }, { passive: true });
+        box.addEventListener('touchend', ev => {
+            if (startX === null) return;
+            const dx = ev.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+            startX = null;
+        });
     }
 
     // Publication filter by research theme (from data/themes.json): chips, plus the "See the papers" buttons on each theme card.
