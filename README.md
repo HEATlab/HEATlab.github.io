@@ -24,4 +24,4 @@ Commit and push `main`; GitHub Pages publishes within a minute or two.
 Notes:
 - A publication appears when one of its authors is an alumnus; those names are bolded. If a student published under a different name, add it to that person's `published_as` in `data/alumni.json`.
 - Alumni photos go in `img/team/` (any size); `make_images.py` makes the small web versions in `assets/img/`.
-- `css/`, `js/`, `papers/` and most of `img/` belong to the previous site and aren't used by the new page.
+- `img/` holds the original photos that `tools/make_images.py` works from; `papers/` keeps the previous site's PDF links working.
