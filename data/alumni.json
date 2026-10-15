@@ -257,7 +257,9 @@
       ],
       "photo": "michael.jpg",
       "now": "AI/ML Engineering Lead, Adobe",
-      "degrees": [],
+      "degrees": [
+        "MS, Management Science and Engineering, Stanford, 2022"
+      ],
       "linkedin": "https://www.linkedin.com/in/michael-gao-0217a3133"
     },
     {
