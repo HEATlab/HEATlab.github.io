@@ -451,7 +451,9 @@
       ],
       "photo": "scott.jpg",
       "now": "Principal Software Engineer, Berkshire Grey",
-      "degrees": [],
+      "degrees": [
+        "PhD, Robotics, Oregon State, 2024"
+      ],
       "linkedin": "https://www.linkedin.com/in/chowscott"
     },
     {
