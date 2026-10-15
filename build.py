@@ -199,6 +199,15 @@ def degree_summary(alumni):
     return f'{I}<p class="outcomes">Of our alumni, {text}.</p>'
 
 
+def degree_label(d):
+    """'PhD (in progress), CS, Stanford' -> 'PhD student, CS, Stanford'; completed degrees unchanged."""
+    head, _, rest = d.partition(",")
+    if "(in progress)" in head:
+        kind = head.replace("(in progress)", "").strip()
+        head = {"PhD": "PhD student"}.get(kind, f"{kind} student")
+    return head + ("," + rest if rest else "")
+
+
 def alumni_html(alumni):
     out = []
     for year in sorted({a["year"] for a in alumni}, reverse=True):
@@ -208,7 +217,7 @@ def alumni_html(alumni):
                       if a.get("photo") else f'<span class="initials" aria-hidden="true">{initials(a["name"])}</span>')
             college = f' · {esc(COLLEGE_NAMES[a["college"]])}' if a.get("college") else ""
             now = f'<p class="alum-now">{esc(a["now"])}</p>' if a.get("now") else ""
-            degrees = "".join(f'<p class="alum-degree">{esc(d)}</p>' for d in a.get("degrees", []))
+            degrees = "".join(f'<p class="alum-degree">{esc(degree_label(d))}</p>' for d in a.get("degrees", []))
             linkedin = (f'<a class="alum-linkedin" href="{esc(a["linkedin"])}" aria-label="{esc(a["name"])} on LinkedIn">'
                         f'<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="{LINKEDIN_PATH}"/></svg></a>'
                         if a.get("linkedin") else "")

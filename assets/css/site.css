@@ -111,7 +111,12 @@ section { padding: 72px 0; }
 .initials { display: grid; place-items: center; background: #fff3cf; color: #8a6400; font-weight: 700; }
 .alum p { margin: 0; font-size: .9rem; color: var(--muted); }
 .alum .alum-name { font-weight: 700; color: var(--ink); font-size: 1rem; }
-.alum .alum-now { color: var(--ink); margin-top: 4px; }
+.alum .alum-now, .alum .alum-degree { position: relative; padding-left: 20px; margin-top: 4px; }
+.alum .alum-now { color: var(--ink); font-weight: 600; }
+.alum .alum-now::before, .alum .alum-degree::before { content: ""; position: absolute; left: 0; top: 3px; width: 14px; height: 14px; background: var(--gold-dark); }
+/* briefcase (now) and graduation cap (degrees), as masks so they take the gold color */
+.alum .alum-now::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v4H2V8a2 2 0 0 1 2-2h4V5a2 2 0 0 1 2-2zm0 3h4V5h-4v1zM2 14h8v2h4v-2h8v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v4H2V8a2 2 0 0 1 2-2h4V5a2 2 0 0 1 2-2zm0 3h4V5h-4v1zM2 14h8v2h4v-2h8v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.alum .alum-degree::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.8c0 1.7 3.1 4 7 4s7-2.3 7-4v-3.8l-7 3.8-7-3.8z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.8c0 1.7 3.1 4 7 4s7-2.3 7-4v-3.8l-7 3.8-7-3.8z'/%3E%3C/svg%3E") center / contain no-repeat; }
 .alum-linkedin { display: inline-flex; vertical-align: -2px; margin-left: 6px; color: #0a66c2; }
 .alum-linkedin:hover { color: var(--ink); }
 
