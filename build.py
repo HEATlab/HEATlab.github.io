@@ -262,7 +262,7 @@ def main():
     others = student_matcher(json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8")).get("other_student_authors", []))
     is_student = lambda first, last: match(first, last) is not None or others(first, last) is not None
 
-    student_pubs, coauthors = [], set()
+    student_pubs, coauthors, n_first = [], set(), 0
     for key, (typ, f) in bib.items():
         if f.get("keywords", "") in ("grant", "patent"):
             continue
@@ -270,6 +270,8 @@ def main():
         hits = [h for h in hits if h]
         if hits:
             student_pubs.append((key, typ, f))
+            first, last = authors_of(f)[0]
+            n_first += bool(match(first, last) or others(first, last))
             coauthors.update(h["name"] for h in hits)
     student_pubs.sort(key=lambda e: (e[2]["year"], e[0]), reverse=True)
 
@@ -293,7 +295,7 @@ def main():
     colleges = sorted({a.get("college") for a in alumni}, key=lambda c: (c is not None, COLLEGE_NAMES[c]))
     fill = {
         "N_ALUMNI": str(len(alumni)), "FIRST_YEAR": str(min(a["year"] for a in alumni)),
-        "N_COAUTHORS": str(len(coauthors)), "N_PHD": str(phd_count(alumni)), "N_PAPERS": str(len(student_pubs)),
+        "N_COAUTHORS": str(len(coauthors)), "N_PHD": str(phd_count(alumni)), "N_PAPERS": str(len(student_pubs)), "N_FIRST": str(n_first),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
         "THEMES": themes_html(themes, bib, match), "GALLERY": gallery_html(),
         "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
