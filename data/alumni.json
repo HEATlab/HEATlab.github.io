@@ -1,5 +1,5 @@
 {
-  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, e.g. ['PhD, Computer Science, Stanford']. 'published_as' = other names on papers (for bolding student authors).",
+  "_note": "HEATlab alumni. year = graduation year. college = null means Harvey Mudd. 'now' = current role, e.g. 'Assistant Professor, MIT'. 'degrees' = further degrees, e.g. ['PhD, Computer Science, Stanford']. 'published_as' = other names on papers (for bolding student authors). 'other_student_authors' = students who co-authored lab papers but aren't lab alumni (bolded in publications, not listed or counted as alumni).",
   "alumni": [
     {
       "name": "Julia Hansen",
@@ -54,7 +54,10 @@
       ],
       "photo": "eryn.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "published_as": [
+        "Yiran Ma"
+      ]
     },
     {
       "name": "Emily Weiss",
@@ -109,7 +112,10 @@
       ],
       "photo": "ingrid.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "published_as": [
+        "Siqi Wu"
+      ]
     },
     {
       "name": "Maya Abo Dominguez",
@@ -324,7 +330,10 @@
       ],
       "photo": "maggie.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "published_as": [
+        "Hemeng Li"
+      ]
     },
     {
       "name": "Viva Ojha",
@@ -382,7 +391,10 @@
       ],
       "photo": "liam.jpg",
       "now": "",
-      "degrees": []
+      "degrees": [],
+      "published_as": [
+        "William Lloyd"
+      ]
     },
     {
       "name": "Montana Roberts",
@@ -545,6 +557,31 @@
       "photo": "jeb.png",
       "now": "",
       "degrees": []
+    }
+  ],
+  "other_student_authors": [
+    {
+      "name": "David Chu",
+      "note": "HMC Clinic team (with Liam Lloyd)",
+      "published_as": [
+        "David Chu Lasso"
+      ]
+    },
+    {
+      "name": "Grace Diehl",
+      "note": "HMC Clinic team"
+    },
+    {
+      "name": "Marina Knittel",
+      "note": "HMC Clinic team"
+    },
+    {
+      "name": "Judy Lin",
+      "note": "HMC Clinic team"
+    },
+    {
+      "name": "Karla Mena",
+      "note": "Upward Bound high school participant"
     }
   ]
 }

@@ -195,6 +195,8 @@ def main():
     alumni = json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8"))["alumni"]
     themes = json.loads((ROOT / "data" / "themes.json").read_text(encoding="utf-8"))["themes"]
     match = student_matcher(alumni)
+    others = student_matcher(json.loads((ROOT / "data" / "alumni.json").read_text(encoding="utf-8")).get("other_student_authors", []))
+    is_student = lambda first, last: match(first, last) is not None or others(first, last) is not None
 
     student_pubs, coauthors = [], set()
     for key, (typ, f) in bib.items():
@@ -218,7 +220,7 @@ def main():
         if f["year"] != last_year:
             pubs.append(f'{I}<h3 class="year pub-year">{f["year"]}</h3>')
             last_year = f["year"]
-        pubs.append(pub_html(key, typ, f, lambda a, b: match(a, b) is not None, themes_of.get(key, [])))
+        pubs.append(pub_html(key, typ, f, is_student, themes_of.get(key, [])))
     chips = [f'{I}<button type="button" class="chip active" data-theme="">All <span>{len(student_pubs)}</span></button>']
     for t in themes:
         n = sum(1 for k, _, _ in student_pubs if t["id"] in themes_of.get(k, []))
