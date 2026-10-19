@@ -80,6 +80,35 @@
           "papers": ["chu2018tradeoffs", "abrahams2019dream"]
         }
       ]
+    },
+    {
+      "id": "planet",
+      "title": "Planning for a better planet",
+      "topic": "climate",
+      "image": "plan4planet.png",
+      "image_fit": "contain",
+      "image_alt": "Plan4Planet logo: a tree of gears and circuits with a city, crops and wind turbines at its roots",
+      "link": "https://www.plan4planet.org/",
+      "label": "Projects",
+      "all_papers": true,
+      "blurb": "A changing climate demands hard decisions about where to look and what to do. Our newest thread brings AI planning and scheduling to Earth science: directing satellites and sensors to watch volcanoes and extreme heat, and connecting planning researchers with climate experts.",
+      "projects": [
+        {
+          "name": "Satellite & sensorweb scheduling",
+          "text": "With NASA's Jet Propulsion Laboratory, we developed approaches for scheduling imaging across fleets of Earth-observing satellites, and for coordinating space and ground sensors into sensorwebs that monitor events such as volcanic eruptions.",
+          "papers": ["boerkoel2021efficient", "chien2020leveraging", "chien2020space"]
+        },
+        {
+          "name": "FAME-HEAT28: extreme heat at LA28",
+          "text": "Jim is consulting with JPL (2026–2027) on planning new space, air, and ground observations that reduce uncertainty in extreme-heat decisions for the LA 2028 Olympic and Paralympic Games.",
+          "link": {"url": "https://esto.nasa.gov/files/ESTIM_2026_Abstracts/Rebbapragada_0.html", "label": "NASA project abstract"}
+        },
+        {
+          "name": "Plan4Planet",
+          "text": "Jim's initiative to bring AI planning and reasoning researchers together with climate experts on the decisions a changing climate demands, starting with the Planning for a Better Planet AAAI Fall Symposium (November 5–7, 2026, Arlington, Virginia).",
+          "link": {"url": "https://www.plan4planet.org/", "label": "plan4planet.org"}
+        }
+      ]
     }
   ]
 }

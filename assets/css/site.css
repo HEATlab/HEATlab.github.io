@@ -74,7 +74,8 @@ section { padding: 72px 0; }
 /* --- Research themes --- */
 .themes { display: grid; gap: 24px; }
 .theme { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
-.theme > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; border-bottom: 1px solid var(--line); }
+.theme > img, .theme > a > img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; border-bottom: 1px solid var(--line); }
+.theme img.contain { object-fit: contain; padding: 10px 0; }
 .theme-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
 .theme h3 { font-size: 1.3rem; }
 .theme-body > p { color: var(--muted); }
@@ -88,6 +89,7 @@ section { padding: 72px 0; }
 .project-people { font-size: .9rem !important; color: var(--ink) !important; }
 .project-papers { margin: 0 0 .8rem; padding-left: 1.1rem; font-size: .9rem; }
 .project-papers span { color: var(--muted); }
+.project-link { margin: 0 0 .8rem; font-size: .9rem; font-weight: 600; }
 .theme-papers { margin-top: auto; align-self: flex-start; background: none; border: 0; padding: 14px 0 0; font: inherit; font-weight: 700; color: var(--gold-dark); cursor: pointer; }
 .theme-papers:hover { color: var(--ink); }
 
@@ -173,10 +175,10 @@ section { padding: 72px 0; }
     .students-body { grid-template-columns: 1.1fr 1fr; gap: 48px; }
     .gallery { grid-template-columns: repeat(4, 1fr); }
     .alumni { grid-template-columns: repeat(2, 1fr); }
+    .themes { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1000px) {
     .stats { grid-template-columns: repeat(5, 1fr); }
-    .themes { grid-template-columns: repeat(3, 1fr); }
     .alumni { grid-template-columns: repeat(3, 1fr); }
 }
 .short { display: none; }

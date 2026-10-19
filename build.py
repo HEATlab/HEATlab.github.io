@@ -112,16 +112,27 @@ def pub_html(key, typ, f, is_student, theme_ids):
             f"{I}</article>")
 
 
-def themes_html(themes, bib, match):
+def paper_href(k, f, listed):
+    """Papers in the student list link there; others (no student co-author) link to the DOI or URL."""
+    if k in listed:
+        return f"#pub-{k}"
+    if f.get("doi"):
+        return f'https://doi.org/{f["doi"]}'
+    return f.get("url", "")
+
+
+def themes_html(themes, bib, match, listed):
     out = []
     for t in themes:
         projects = []
         for p in t["projects"]:
             papers = "".join(
-                f'<li><a href="#pub-{k}">{esc(tex(bib[k][1]["title"]))}</a> <span>({bib[k][1]["year"]})</span></li>'
-                for k in p["papers"] if k in bib)
+                (f'<li><a href="{esc(h)}">{esc(tex(bib[k][1]["title"]))}</a>' if (h := paper_href(k, bib[k][1], listed))
+                 else f'<li>{esc(tex(bib[k][1]["title"]))}')
+                + f' <span>({bib[k][1]["year"]})</span></li>'
+                for k in p.get("papers", []) if k in bib)
             people = []
-            for k in p["papers"]:
+            for k in p.get("papers", []):
                 for first, last in authors_of(bib[k][1]) if k in bib else []:
                     a = match(first, last)
                     if a and a["name"] not in people:
@@ -131,17 +142,23 @@ def themes_html(themes, bib, match):
                 f'{I}            <p>{esc(p["text"])}</p>\n'
                 + (f'{I}            <p class="project-people">Students: {esc(", ".join(people))}</p>\n' if people else "")
                 + (f'{I}            <ul class="project-papers">{papers}</ul>\n' if papers else "")
+                + (f'{I}            <p class="project-link"><a href="{esc(p["link"]["url"])}">{esc(p["link"]["label"])} →</a></p>\n' if p.get("link") else "")
                 + f"{I}        </details>")
+        img = (f'<img src="assets/img/themes/{t["image"]}" alt="{esc(t["image_alt"])}" loading="lazy"'
+               + (' class="contain"' if t.get("image_fit") == "contain" else "") + ">")
+        if t.get("link"):
+            img = f'<a href="{esc(t["link"])}">{img}</a>'
+        has_papers = any(k in listed for p in t["projects"] for k in p.get("papers", []))
         out.append(
             f'{I}<article class="theme">\n'
-            f'{I}    <img src="assets/img/themes/{t["image"]}" alt="{esc(t["image_alt"])}" loading="lazy">\n'
+            f'{I}    {img}\n'
             f'{I}    <div class="theme-body">\n'
             f'{I}        <h3>{esc(t["title"])}</h3>\n'
             f'{I}        <p>{esc(t["blurb"])}</p>\n'
-            f'{I}        <p class="theme-projects-label">Past projects</p>\n'
+            f'{I}        <p class="theme-projects-label">{esc(t.get("label", "Past projects"))}</p>\n'
             + "\n".join(projects) + "\n"
-            f'{I}        <button type="button" class="theme-papers" data-theme="{t["id"]}">See the papers →</button>\n'
-            f"{I}    </div>\n{I}</article>")
+            + (f'{I}        <button type="button" class="theme-papers" data-theme="{t["id"]}">See the papers →</button>\n' if has_papers else "")
+            + f"{I}    </div>\n{I}</article>")
     return "\n".join(out)
 
 
@@ -275,21 +292,35 @@ def main():
             coauthors.update(h["name"] for h in hits)
     student_pubs.sort(key=lambda e: (e[2]["year"], e[0]), reverse=True)
 
+    # Themes with "all_papers": true list every paper with their .bib topic (and their projects' papers),
+    # student co-authors or not. These join the list and filters, but not the student stats.
+    topic_keys = {t["id"]: {k for k, (_, f) in bib.items() if t["topic"] in re.split(r"[,\s]+", f.get("topics", ""))}
+                  | {k for p in t["projects"] for k in p.get("papers", []) if k in bib}
+                  for t in themes if t.get("all_papers")}
+    listed_keys = {k for k, _, _ in student_pubs}
+    shown = student_pubs + [(k, *bib[k]) for k in sorted(set().union(*topic_keys.values()) - listed_keys)]
+    shown.sort(key=lambda e: (e[2]["year"], e[0]), reverse=True)
+
     # A paper belongs to a theme when one of the theme's projects lists it (data/themes.json).
     themes_of = {}
     for t in themes:
         for p in t["projects"]:
-            for k in p["papers"]:
+            for k in p.get("papers", []):
                 themes_of.setdefault(k, []).append(t["id"]) if t["id"] not in themes_of.get(k, []) else None
+    for tid, keys in topic_keys.items():
+        for k in keys:
+            themes_of.setdefault(k, []).append(tid) if tid not in themes_of.get(k, []) else None
     pubs, last_year = [], None
-    for key, typ, f in student_pubs:
+    for key, typ, f in shown:
         if f["year"] != last_year:
             pubs.append(f'{I}<h3 class="year pub-year">{f["year"]}</h3>')
             last_year = f["year"]
         pubs.append(pub_html(key, typ, f, is_student, themes_of.get(key, [])))
-    chips = [f'{I}<button type="button" class="chip active" data-theme="">All <span>{len(student_pubs)}</span></button>']
+    chips = [f'{I}<button type="button" class="chip active" data-theme="">All <span>{len(shown)}</span></button>']
     for t in themes:
-        n = sum(1 for k, _, _ in student_pubs if t["id"] in themes_of.get(k, []))
+        n = sum(1 for k, _, _ in shown if t["id"] in themes_of.get(k, []))
+        if not n:
+            continue
         chips.append(f'{I}<button type="button" class="chip" data-theme="{t["id"]}">{esc(t["title"])} <span>{n}</span></button>')
 
     colleges = sorted({a.get("college") for a in alumni}, key=lambda c: (c is not None, COLLEGE_NAMES[c]))
@@ -297,7 +328,7 @@ def main():
         "N_ALUMNI": str(len(alumni)), "FIRST_YEAR": str(min(a["year"] for a in alumni)),
         "N_COAUTHORS": str(len(coauthors)), "ALUMNI_PUBS": esc(data.get("alumni_publications", {}).get("display", "")), "N_PHD": str(phd_count(alumni)), "N_PAPERS": str(len(student_pubs)), "N_FIRST": str(n_first),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
-        "THEMES": themes_html(themes, bib, match), "GALLERY": gallery_html(),
+        "THEMES": themes_html(themes, bib, match, {k for k, _, _ in shown}), "GALLERY": gallery_html(),
         "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
     }
     page = (ROOT / "template.html").read_text(encoding="utf-8")
@@ -307,7 +338,7 @@ def main():
         sys.exit(f"Unfilled placeholders: {left}")
     (ROOT / "index.html").write_text(page, encoding="utf-8")
     print(f"index.html: {len(alumni)} alumni, {len(coauthors)} student co-authors, {len(student_pubs)} papers")
-    missing = [k for t in themes for p in t["projects"] for k in p["papers"] if k not in bib]
+    missing = [k for t in themes for p in t["projects"] for k in p.get("papers", []) if k not in bib]
     if missing:
         print("Warning: paper keys in data/themes.json not found in the .bib:", ", ".join(missing))
 
