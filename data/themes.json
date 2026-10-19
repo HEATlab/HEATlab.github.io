@@ -70,9 +70,14 @@
       "blurb": "When a team of robots shares a plan, every delay ripples. We study how robots can schedule robust interactions, and how much communication and rescheduling that really takes.",
       "projects": [
         {
-          "name": "Robot Brunch & DREAM",
-          "text": "We want multi-robot plans that adapt to events beyond the robots' control, like slippage or sensor failures. This project introduced robustness, the likelihood that a multi-robot plan succeeds, and DREAM, a single streamlined algorithm that trades robustness against computational overhead, including multi-agent communication.",
-          "papers": ["brooks2015robustness", "lund2016robustmulti", "lund2016robustexecution", "lund2017robust", "chu2018tradeoffs", "abrahams2019dream"]
+          "name": "Robot Brunch",
+          "text": "We want multi-robot plans that adapt to events beyond the robots' control, like slippage or sensor failures. This project introduced robustness, the likelihood that a multi-robot plan succeeds, and execution strategies that keep plans robust as they run.",
+          "papers": ["brooks2015robustness", "lund2016robustmulti", "lund2016robustexecution", "lund2017robust"]
+        },
+        {
+          "name": "DREAM",
+          "text": "Keeping a multi-robot plan robust can take constant rescheduling and communication. Working with Jeremy Frank at NASA Ames, we measured the trade-offs between communication, rescheduling, and success rate, and developed DREAM, a single streamlined algorithm that balances robustness against computational and communication overhead.",
+          "papers": ["chu2018tradeoffs", "abrahams2019dream"]
         }
       ]
     }

@@ -116,7 +116,8 @@
       "degrees": [
         "PhD (in progress), Computer Science, Georgia Tech"
       ],
-      "linkedin": "https://www.linkedin.com/in/julianna-s-450b5713b"
+      "linkedin": "https://www.linkedin.com/in/julianna-s-450b5713b",
+      "website": "https://core-robotics.gatech.edu/people/julianna-schalkwyk"
     },
     {
       "name": "Ingrid Wu",
@@ -200,7 +201,8 @@
       "published_as": [
         "Huaxiaoyue Wang"
       ],
-      "linkedin": "https://www.linkedin.com/in/yukiwang-hw"
+      "linkedin": "https://www.linkedin.com/in/yukiwang-hw",
+      "website": "https://lunay0yuki.github.io/"
     },
     {
       "name": "Hannah Davalos",
@@ -340,7 +342,7 @@
       "year": 2019,
       "college": null,
       "projects": [
-        "Robot Brunch"
+        "DREAM"
       ],
       "photo": "jordan.jpg",
       "now": "Senior Software Engineer, Google",
@@ -358,7 +360,8 @@
       "now": "",
       "degrees": [
         "PhD, Computer Science, MIT, 2024"
-      ]
+      ],
+      "website": "https://www.shyanakmal.com/"
     },
     {
       "name": "Morgan Frisby",
@@ -595,7 +598,8 @@
       "degrees": [
         "PhD, Computer Science & Public Policy, Carnegie Mellon"
       ],
-      "linkedin": "https://www.linkedin.com/in/priya-donti"
+      "linkedin": "https://www.linkedin.com/in/priya-donti",
+      "website": "https://priyadonti.com/"
     },
     {
       "name": "Alex Gruver",
