@@ -112,8 +112,10 @@
         "Improvisational Teamwork"
       ],
       "photo": "julianna.jpeg",
-      "now": "Graduate student, Georgia Tech",
-      "degrees": [],
+      "now": "",
+      "degrees": [
+        "PhD (in progress), Computer Science, Georgia Tech"
+      ],
       "linkedin": "https://www.linkedin.com/in/julianna-s-450b5713b"
     },
     {
@@ -125,7 +127,9 @@
       ],
       "photo": "ingrid.jpg",
       "now": "Research Assistant, MIT CSAIL",
-      "degrees": [],
+      "degrees": [
+        "SM, Aeronautics and Astronautics, MIT, 2026"
+      ],
       "published_as": [
         "Siqi Wu"
       ],
@@ -189,8 +193,10 @@
         "Improvisational Teamwork"
       ],
       "photo": "yuki.jpeg",
-      "now": "Graduate student, Cornell University",
-      "degrees": [],
+      "now": "",
+      "degrees": [
+        "PhD (in progress), Computer Science, Cornell"
+      ],
       "published_as": [
         "Huaxiaoyue Wang"
       ],
@@ -419,7 +425,9 @@
       ],
       "photo": "brenda.jpg",
       "now": "Licensed Mental Health Counselor, Good Therapy NYC",
-      "degrees": [],
+      "degrees": [
+        "MEd, Mental Health Counseling, Hunter College, 2023"
+      ],
       "linkedin": "https://www.linkedin.com/in/bvcastro"
     },
     {
