@@ -200,3 +200,16 @@ section { padding: 72px 0; }
     html { scroll-behavior: auto; }
     .gallery-item img { transition: none; }
 }
+
+/* --- In the press --- */
+.press-card { display: flex; align-items: center; margin-top: 28px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid #d8202a; border-radius: var(--radius); overflow: hidden; color: var(--ink); text-decoration: none; }
+.press-card:hover { color: var(--ink); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.press-card img { width: 220px; height: 170px; object-fit: cover; object-position: 50% 30%; flex: none; }
+.press-body { padding: 18px 24px; }
+.press-meta { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+.press-badge { background: #d8202a; color: #fff; font-weight: 700; text-transform: none; letter-spacing: .02em; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+.press-card h3 { font-size: 1.25rem; margin-bottom: 6px; }
+.press-quote { font-style: italic; color: var(--muted); margin-bottom: 8px; }
+.press-link { font-weight: 600; color: var(--gold-dark); }
+.press-card:hover .press-link { color: var(--ink); }
+@media (max-width: 575px) { .press-card { flex-direction: column; } .press-card img { width: 100%; height: 200px; } }
