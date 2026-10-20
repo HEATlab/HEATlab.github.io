@@ -346,6 +346,10 @@ def main():
         "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs), "PUB_SELECTED": "\n".join(selected), "N_PUBS": str(len(shown)),
     }
     page = (ROOT / "template.html").read_text(encoding="utf-8")
+    # Version tags on the stylesheet/script links (content hash), so browsers fetch them again after a change
+    import hashlib
+    for k, f in (("CSS_V", "assets/css/site.css"), ("JS_V", "assets/js/site.js")):
+        fill[k] = hashlib.sha1((ROOT / f).read_bytes()).hexdigest()[:8]
     for k, v in fill.items():
         page = page.replace("{{" + k + "}}", v)
     if (left := re.findall(r"\{\{\w+\}\}", page)):

@@ -52,9 +52,18 @@ section { padding: 72px 0; }
 .brand-bot { position: absolute; left: 35.32%; top: 1.12%; width: 19.07%; height: 75.63%;
     transform-origin: 50% 8%; transition: transform .35s cubic-bezier(.4, 0, .2, 1), filter .35s; }
 .brand-bot img { width: 100%; height: 100%; }
-.topbar:not(.scrolled) .brand-bot { transform: scale(3.1); filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .9)) drop-shadow(0 0 4px rgba(255, 255, 255, .45)); }   /* a soft light glow lifts it off the hero photo */
-.topbar:not(.scrolled) .brand-he { transform: translateX(-17px); }
-.topbar:not(.scrolled) .brand-tlab { transform: translateX(17px); }
+.brand-a { position: absolute; inset: 0; display: none; }
+.brand-a img { width: 100%; height: 100%; }
+/* Flying robot (js/site.js adds .bot-fly to <html>): at the top of the page the header spells HEATlab with a
+   plain A and the robot floats in the hero above the eyebrow; scrolling shrinks it up into the A's place. */
+.hero-bot { display: none; width: 112px; height: 144px; margin: -36px 0 14px; }
+.bot-fly .hero-bot { display: block; }
+.bot-fly .brand-a { display: block; }
+.bot-fly .brand-bot { transition: none; transform-origin: 0 0; will-change: transform; z-index: 11; }
+.bot-fly .brand-bot.floating img { animation: bot-bob 3.2s ease-in-out infinite; }
+.bot-fly .brand-bot.flying { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .9)) drop-shadow(0 0 4px rgba(255, 255, 255, .45)); }
+@keyframes bot-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4%); } }
+@media (max-width: 719px) { .hero-bot { width: 84px; height: 108px; margin-top: -24px; } }
 .topbar nav { display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; }
 .topbar nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
 .topbar nav a:hover { background: var(--band); }
@@ -207,9 +216,6 @@ section { padding: 72px 0; }
 @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
     .brand img { height: 28px; }
-    .topbar:not(.scrolled) .brand-bot { transform: scale(2.5); }
-    .topbar:not(.scrolled) .brand-he { transform: translateX(-11px); }
-    .topbar:not(.scrolled) .brand-tlab { transform: translateX(11px); }
     .topbar-inner { gap: 8px; }
     .topbar nav { gap: 2px; }
     .topbar nav a { padding: 6px 7px; font-size: .88rem; }
@@ -302,9 +308,9 @@ section { padding: 72px 0; }
 /* --- Light ears on the Join? pill, like the robot's --- */
 .topbar nav { padding-right: 6px; margin-right: -6px; }          /* room for the right ear */
 .pill-ears::before, .pill-ears::after { content: ""; position: absolute; top: 50%; width: 5px; height: 14px; margin-top: -7px;
-    background: #ffe08a; border-radius: 2.5px; }
+    background: var(--ink); border-radius: 2.5px; }   /* the header text color: dark in light mode, light in dark mode, like the robot */
 .pill-ears::before { left: -4px; }
 .pill-ears::after { right: -4px; }
 .pill-ears { position: absolute; inset: 0; z-index: -1; }         /* behind the pill, so only the outer edge shows */
 .nav-join { z-index: 0; }
-@media (prefers-color-scheme: dark) { .topbar:not(.scrolled) .brand-bot { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .5)); } }   /* the light robot needs no glow on dark */
+@media (prefers-color-scheme: dark) { .bot-fly .brand-bot.flying { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .5)); } }   /* the light robot needs no glow on dark */

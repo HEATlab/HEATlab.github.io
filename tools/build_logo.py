@@ -148,6 +148,8 @@ def layout():
 
 
 HE, RX, T, LAB, TAG, WIDTH = layout()
+_, _aw = text_path(HEAVY, "A", 0, 0, SIZE)
+A_PATH, _ = text_path(HEAVY, "A", RX + (179 - _aw) / 2, BASE, SIZE)   # a plain "A" centered in the robot's gap
 MODES = {"light": dict(letters=INK, ink=INK, tag=INK, body=BODY["light"]),
          "dark": dict(letters="#ffffff", ink=LIGHT, tag="#c9ced6", body=BODY["dark"])}
 
@@ -176,7 +178,8 @@ def layer_svg(mode, part):
     m = MODES[mode]
     body = {"he": f'<path d="{HE}" fill="{m["letters"]}"/>',
             "tlab": f'<path d="{T}" fill="{m["letters"]}"/><path d="{LAB}" fill="{m["letters"]}"/>',
-            "tagline": f'<path d="{TAG}" fill="{m["tag"]}"/>'}[part]
+            "tagline": f'<path d="{TAG}" fill="{m["tag"]}"/>',
+            "a": f'<path d="{A_PATH}" fill="{m["letters"]}"/>'}[part]
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -12 {WIDTH + 20:.0f} 357">{body}</svg>'
 
 
@@ -213,7 +216,7 @@ def svgs():
         "heatlab-letters.svg": letters_svg("light"),
         "heatlab-letters-dark.svg": letters_svg("dark"),
         **{f"heatlab-{part}{sfx}.svg": layer_svg(mode, part)
-           for part in ("he", "tlab", "tagline") for mode, sfx in (("light", ""), ("dark", "-dark"))},
+           for part in ("he", "tlab", "tagline", "a") for mode, sfx in (("light", ""), ("dark", "-dark"))},
         "heatbot.svg": robot_svg("light"),
         "heatbot-dark.svg": robot_svg("dark"),
         "heatbot-wink.svg": robot_svg("light", animate=True),

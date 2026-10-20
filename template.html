@@ -13,7 +13,7 @@
     <link rel="icon" href="favicon.ico" sizes="48x48">
     <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
     <link rel="preload" as="image" href="assets/img/hero.jpg">
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/site.css?v={{CSS_V}}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQQ06V7DD2"></script>
     <script>
@@ -28,7 +28,7 @@
 
 <header class="topbar">
     <div class="wrap topbar-inner">
-        <a class="brand" href="#top" aria-label="HEATlab: human experience &amp; agent teamwork laboratory @ harvey mudd"><picture class="brand-tagline"><source srcset="assets/img/brand/heatlab-tagline-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-tagline.svg" width="1101" height="357" alt=""></picture><picture class="brand-he"><source srcset="assets/img/brand/heatlab-he-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-he.svg" width="1101" height="357" alt=""></picture><picture class="brand-tlab"><source srcset="assets/img/brand/heatlab-tlab-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-tlab.svg" width="1101" height="357" alt=""></picture><picture class="brand-bot"><source srcset="assets/img/brand/heatbot-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatbot.svg" width="210" height="270" alt=""></picture></a>
+        <a class="brand" href="#top" aria-label="HEATlab: human experience &amp; agent teamwork laboratory @ harvey mudd"><picture class="brand-tagline"><source srcset="assets/img/brand/heatlab-tagline-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-tagline.svg" width="1101" height="357" alt=""></picture><picture class="brand-he"><source srcset="assets/img/brand/heatlab-he-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-he.svg" width="1101" height="357" alt=""></picture><picture class="brand-a"><source srcset="assets/img/brand/heatlab-a-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-a.svg" width="1101" height="357" alt=""></picture><picture class="brand-tlab"><source srcset="assets/img/brand/heatlab-tlab-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatlab-tlab.svg" width="1101" height="357" alt=""></picture><picture class="brand-bot"><source srcset="assets/img/brand/heatbot-dark.svg" media="(prefers-color-scheme: dark)"><img src="assets/img/brand/heatbot.svg" width="210" height="270" alt=""></picture></a>
         <nav aria-label="Sections">
             <a href="#research">Research</a>
             <a href="#alumni">Alumni</a>
@@ -41,6 +41,7 @@
 <main id="top">
     <section class="hero">
         <div class="wrap hero-inner">
+            <div class="hero-bot" aria-hidden="true"></div><!-- the header robot starts here and flies up into the logo (js/site.js) -->
             <p class="eyebrow">Harvey Mudd College</p>
             <h1>Human Experience &amp; Agent Teamwork Lab</h1>
             <p class="hero-lead">We use AI to help people and robots work together as teams.<br>
@@ -183,6 +184,6 @@
     <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
 </dialog>
 
-<script src="assets/js/site.js" defer></script>
+<script src="assets/js/site.js?v={{JS_V}}" defer></script>
 </body>
 </html>

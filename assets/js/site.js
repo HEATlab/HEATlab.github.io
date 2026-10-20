@@ -2,12 +2,52 @@
 // Everything works without JavaScript too (the video and photos just open as links/thumbnails).
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Header: large logo at the top of the page, compact once scrolled
-    const topbar = document.querySelector('.topbar');
-    if (topbar) {
-        const setScrolled = () => topbar.classList.toggle('scrolled', window.scrollY > 8);
-        setScrolled();
-        window.addEventListener('scroll', setScrolled, { passive: true });
+    // Header robot: at the top of the page it floats in the hero (above the eyebrow) while the header spells
+    // HEATlab with a plain A; scrolling shrinks it up into the A's place. Skipped for reduced motion.
+    const bot = document.querySelector('.brand-bot');
+    const spot = document.querySelector('.hero-bot');
+    if (bot && spot && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('bot-fly');
+        const letterA = document.querySelector('.brand-a');
+        const img = bot.querySelector('img'), source = bot.querySelector('source');
+        const still = { img: img.getAttribute('src'), dark: source && source.getAttribute('srcset') };
+        const wink = { img: still.img.replace('heatbot.svg', 'heatbot-wink.svg'), dark: still.dark && still.dark.replace('heatbot-dark.svg', 'heatbot-wink-dark.svg') };
+        let winking = null;
+        const setWink = on => {                       // the animated (winking) robot while it's big; the still one once landed
+            if (on === winking) return;
+            winking = on;
+            const v = on ? wink : still;
+            img.src = v.img;
+            if (source && v.dark) source.srcset = v.dark;
+        };
+        let home, start;                              // the robot's place in the logo; its hero spot at scroll 0
+        const measure = () => {
+            bot.style.transform = 'none';
+            home = bot.getBoundingClientRect();
+            const r = spot.getBoundingClientRect();
+            start = { x: r.left, bottom: r.bottom + window.scrollY, w: r.width };
+            place();
+        };
+        // The robot rides along with the hero (its feet keep their distance above the eyebrow) while it shrinks;
+        // it lands in the A's place exactly when it reaches the header.
+        const place = () => {
+            const homeH = home.height, startH = start.w * homeH / home.width;
+            const range = Math.max(80, start.bottom - home.top - homeH);
+            const t = Math.min(1, window.scrollY / range);
+            const w = start.w + (home.width - start.w) * t, h = w * homeH / home.width;
+            const bottom = start.bottom - window.scrollY;    // the spot's bottom, moving with the page
+            const y = Math.max(home.top, bottom - h);
+            const x = start.x + (home.left - start.x) * t;
+            bot.style.transform = t >= 1 ? 'none' : `translate(${x - home.left}px, ${y - home.top}px) scale(${w / home.width})`;
+            bot.classList.toggle('floating', t === 0);
+            bot.classList.toggle('flying', t < 1);
+            setWink(t < 1);
+            if (letterA) letterA.style.opacity = String(1 - Math.min(1, Math.max(0, (t - 0.8) / 0.2)));
+        };
+        measure();
+        window.addEventListener('scroll', place, { passive: true });
+        window.addEventListener('resize', measure);
+        window.addEventListener('load', measure);
     }
     // Video: load YouTube only when clicked, so the page stays light.
     document.querySelectorAll('[data-youtube]').forEach(btn => {
