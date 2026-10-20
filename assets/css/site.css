@@ -41,8 +41,11 @@ section { padding: 72px 0; }
 
 /* --- Top bar --- */
 .topbar { position: sticky; top: 0; z-index: 10; background: var(--topbar); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
-.brand img { height: 38px; width: auto; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; transition: height .3s ease; }
+.brand img { display: block; height: 38px; width: auto; transition: height .3s ease; }
+/* At the top of the page the bar and logo are larger; they shrink once the page scrolls (js/site.js adds .scrolled) */
+.topbar:not(.scrolled) .topbar-inner { height: 96px; }
+.topbar:not(.scrolled) .brand img { height: 70px; }
 .topbar nav { display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; }
 .topbar nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
 .topbar nav a:hover { background: var(--band); }
@@ -195,6 +198,8 @@ section { padding: 72px 0; }
 @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
     .brand img { height: 28px; }
+    .topbar:not(.scrolled) .topbar-inner { height: 74px; }
+    .topbar:not(.scrolled) .brand img { height: 46px; }
     .topbar-inner { gap: 8px; }
     .topbar nav { gap: 2px; }
     .topbar nav a { padding: 6px 7px; font-size: .88rem; }
@@ -254,7 +259,8 @@ section { padding: 72px 0; }
         --linkedin: #70b5f9;
     }
     a:hover { color: #fff; }
-    .brand img { background: #fff; padding: 3px 8px; border-radius: 8px; }   /* the logo's lettering is black */
     .theme > img, .theme > a > img { filter: brightness(.94); }
     .theme img.contain { filter: none; }
 }
+
+@media (prefers-reduced-motion: reduce) { .topbar-inner, .brand img { transition: none; } }

@@ -2,6 +2,13 @@
 // Everything works without JavaScript too (the video and photos just open as links/thumbnails).
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Header: large logo at the top of the page, compact once scrolled
+    const topbar = document.querySelector('.topbar');
+    if (topbar) {
+        const setScrolled = () => topbar.classList.toggle('scrolled', window.scrollY > 8);
+        setScrolled();
+        window.addEventListener('scroll', setScrolled, { passive: true });
+    }
     // Video: load YouTube only when clicked, so the page stays light.
     document.querySelectorAll('[data-youtube]').forEach(btn => {
         btn.addEventListener('click', () => {
