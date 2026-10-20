@@ -1,5 +1,5 @@
 {
-  "_note": "Research themes shown on the page. 'papers' are .bib keys from Jim's boerkoel_pubs.bib; they decide which papers each theme's publication filter shows. 'topic' is the matching .bib topics tag, for reference. 'thumb_crop' ([x0, y0, x1, y1] fractions) picks the part of the image used for the small theme tile on Jim's homepage.",
+  "_note": "Research themes shown on the page. 'papers' are .bib keys from Jim's boerkoel_pubs.bib; they decide which papers each theme's publication filter shows. 'topic' is the matching .bib topics tag, for reference. 'selected' lists the theme's papers shown first under Selected publications (one or two: most cited and most recent). 'thumb_crop' ([x0, y0, x1, y1] fractions) picks the part of the image used for the small theme tile on Jim's homepage.",
   "themes": [
     {
       "id": "planet",
@@ -12,6 +12,7 @@
       "label": "Projects",
       "all_papers": true,
       "blurb": "A changing climate demands hard decisions about where to look and what to do. Our newest thread brings AI planning and scheduling to Earth science: directing satellites and sensors to watch volcanoes and extreme heat, and connecting planning researchers with climate experts.",
+      "selected": ["chien2020leveraging", "boerkoel2021efficient"],
       "projects": [
         {
           "name": "Satellite & sensorweb scheduling",
@@ -37,6 +38,7 @@
       "image": "teamwork.jpg",
       "image_alt": "A NAO humanoid robot on a desk while a student works at a computer",
       "blurb": "How should robots and AI agents share work with people? We build scheduling approaches for mixed human-robot teams and test them with real people and real robots, measuring trust, fluency, and who should take the lead.",
+      "selected": ["paeng2016exploring", "morgan2022simple"],
       "projects": [
         {
           "name": "CHAI: Cultivating Human-Agent Interactions",
@@ -72,6 +74,7 @@
       "image": "uncertainty.jpg",
       "image_alt": "A student adjusting the wrist of a red Sawyer robot arm, with planning diagrams on the whiteboard behind her",
       "blurb": "Robots slip and people run late. We develop the math and algorithms behind temporal plans that stay flexible, durable, and controllable when things don't go as expected.",
+      "selected": ["akmal2020quantifying", "akmal2019quantifying"],
       "projects": [
         {
           "name": "Probably-in-Control",
@@ -97,6 +100,7 @@
       "image": "multirobot.jpg",
       "image_alt": "Two students on the lab floor setting up a small wheeled robot inside a taped-off course",
       "blurb": "When a team of robots shares a plan, every delay ripples. We study how robots can schedule robust interactions, and how much communication and rescheduling that really takes.",
+      "selected": ["brooks2015robustness", "abrahams2019dream"],
       "projects": [
         {
           "name": "Robot Brunch",

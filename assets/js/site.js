@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Publication filter by research theme (from data/themes.json): chips, plus the "See the papers" buttons on each theme card.
-    const pubs = [...document.querySelectorAll('.pub')];
+    const pubs = [...document.querySelectorAll('#pub-all .pub')];
     const years = [...document.querySelectorAll('.pub-year')];
     const chips = [...document.querySelectorAll('.chip')];
     function filter(theme) {
@@ -72,12 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
             c.setAttribute('aria-pressed', on);
         });
     }
+    // Selected publications show first; the full list opens on request (without JS both show).
+    const all = document.getElementById('pub-all');
+    const showAllBtn = document.getElementById('pub-show-all');
+    const showAll = () => { if (all) all.hidden = false; if (showAllBtn) showAllBtn.hidden = true; };
+    if (all && showAllBtn && document.querySelector('#pub-selected .pub')) {
+        all.hidden = true;
+        showAllBtn.hidden = false;
+        showAllBtn.addEventListener('click', () => { showAll(); all.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    }
     chips.forEach(c => c.addEventListener('click', () => filter(c.dataset.theme)));
     document.querySelectorAll('.theme-papers').forEach(b => b.addEventListener('click', () => {
+        showAll();
         filter(b.dataset.theme);
         document.getElementById('publications').scrollIntoView();
     }));
     // Links from project lists to a specific paper: clear the filter so the paper is visible.
-    document.querySelectorAll('.project-papers a').forEach(a => a.addEventListener('click', () => filter('')));
+    document.querySelectorAll('.project-papers a').forEach(a => a.addEventListener('click', () => { showAll(); filter(''); }));
     filter('');
 });

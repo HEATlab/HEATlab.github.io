@@ -91,7 +91,7 @@ def venue(typ, f):
     return tex(v)
 
 
-def pub_html(key, typ, f, is_student, theme_ids):
+def pub_html(key, typ, f, is_student, theme_ids, id_prefix="pub"):
     names = []
     for first, last in authors_of(f):
         n = esc(f"{first} {last}".strip())
@@ -104,12 +104,15 @@ def pub_html(key, typ, f, is_student, theme_ids):
         links.append(f'<a href="https://doi.org/{esc(f["doi"])}">DOI</a>')
     elif f.get("url"):
         links.append(f'<a href="{esc(f["url"])}">Link</a>')
-    return (f'{I}<article class="pub" id="pub-{key}" data-themes="{" ".join(theme_ids)}">\n'
+    note = f.get("note", "")
+    award = (f'{I}    <p class="pub-award"><span aria-hidden="true">🏆</span> {esc(tex(note).replace("Awarded ", ""))}</p>\n'
+             if "award" in note.lower() else "")
+    return (f'{I}<article class="pub" id="{id_prefix}-{key}" data-themes="{" ".join(theme_ids)}">\n'
             f'{I}    <h4>{esc(tex(f["title"]))}</h4>\n'
             f'{I}    <p class="pub-authors">{au}</p>\n'
             f'{I}    <p class="pub-venue"><i>{esc(venue(typ, f))}</i>, {f["year"]}'
             + (f' · {" · ".join(links)}' if links else "") + "</p>\n"
-            f"{I}</article>")
+            + award + f"{I}</article>")
 
 
 def paper_href(k, f, listed):
@@ -316,6 +319,17 @@ def main():
             pubs.append(f'{I}<h3 class="year pub-year">{f["year"]}</h3>')
             last_year = f["year"]
         pubs.append(pub_html(key, typ, f, is_student, themes_of.get(key, [])))
+    # Selected publications: each theme's "selected" papers (data/themes.json), shown first, by theme.
+    shown_keys = {k for k, _, _ in shown}
+    selected = []
+    for t in themes:
+        keys = t.get("selected", [])
+        missing = [k for k in keys if k not in shown_keys]
+        if missing:
+            sys.exit(f"themes.json: {t['id']} selects {missing}, which aren't among the listed publications")
+        if keys:
+            selected.append(f'{I}<h3 class="year">{esc(t["title"])}</h3>')
+            selected.extend(pub_html(k, *bib[k], is_student, themes_of.get(k, []), id_prefix="sel") for k in keys)
     chips = [f'{I}<button type="button" class="chip active" data-theme="">All <span>{len(shown)}</span></button>']
     for t in themes:
         n = sum(1 for k, _, _ in shown if t["id"] in themes_of.get(k, []))
@@ -329,7 +343,7 @@ def main():
         "N_COAUTHORS": str(len(coauthors)), "ALUMNI_PUBS": esc(data.get("alumni_publications", {}).get("display", "")), "N_PHD": str(phd_count(alumni)), "N_PAPERS": str(len(student_pubs)), "N_FIRST": str(n_first),
         "N_COLLEGES": str(len(colleges)), "COLLEGES": esc(", ".join(COLLEGE_NAMES[c] for c in colleges)),
         "THEMES": themes_html(themes, bib, match, {k for k, _, _ in shown}), "GALLERY": gallery_html(),
-        "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs),
+        "ALUMNI": alumni_html(alumni), "OUTCOMES": degree_summary(alumni) if data.get("show_degree_summary", True) else "", "PUB_CHIPS": "\n".join(chips), "PUBS": "\n".join(pubs), "PUB_SELECTED": "\n".join(selected), "N_PUBS": str(len(shown)),
     }
     page = (ROOT / "template.html").read_text(encoding="utf-8")
     for k, v in fill.items():
