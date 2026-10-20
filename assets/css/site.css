@@ -213,3 +213,4 @@ section { padding: 72px 0; }
 .press-link { font-weight: 600; color: var(--gold-dark); }
 .press-card:hover .press-link { color: var(--ink); }
 @media (max-width: 575px) { .press-card { flex-direction: column; } .press-card img { width: 100%; height: 200px; } }
+.theme { scroll-margin-top: 80px; }

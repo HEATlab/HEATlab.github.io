@@ -150,7 +150,7 @@ def themes_html(themes, bib, match, listed):
             img = f'<a href="{esc(t["link"])}">{img}</a>'
         has_papers = any(k in listed for p in t["projects"] for k in p.get("papers", []))
         out.append(
-            f'{I}<article class="theme">\n'
+            f'{I}<article class="theme" id="theme-{t["id"]}">\n'
             f'{I}    {img}\n'
             f'{I}    <div class="theme-body">\n'
             f'{I}        <h3>{esc(t["title"])}</h3>\n'

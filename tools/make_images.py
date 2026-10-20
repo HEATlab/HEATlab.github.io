@@ -55,7 +55,7 @@ def main():
     logo = white_to_alpha(Image.open(SRC / "logos" / "HEATlab_logo.png"))
     logo.resize((520, round(logo.height * 520 / logo.width)), Image.LANCZOS).save(OUT / "logo.png", optimize=True)
     save(Image.open(SRC / "logos" / "hmc.png"), OUT / "hmc.png", 240)
-    themes = {"teamwork.jpg": "projects/conavigation_action.jpg", "uncertainty.png": "projects/prob_ctrl.png",
+    themes = {"teamwork.jpg": "projects/conavigation_action.jpg", "uncertainty.jpg": "team/heatlab2.jpg",
               "multirobot.jpg": "projects/robotbrunch_action.jpg"}
     for out, src in themes.items():
         save(Image.open(SRC / src), OUT / "themes" / out, 800)

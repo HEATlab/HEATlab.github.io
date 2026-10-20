@@ -1,5 +1,5 @@
 {
-  "_note": "Research themes shown on the page. 'papers' are .bib keys from Jim's boerkoel_pubs.bib; they decide which papers each theme's publication filter shows. 'topic' is the matching .bib topics tag, for reference.",
+  "_note": "Research themes shown on the page. 'papers' are .bib keys from Jim's boerkoel_pubs.bib; they decide which papers each theme's publication filter shows. 'topic' is the matching .bib topics tag, for reference. 'thumb_crop' ([x0, y0, x1, y1] fractions) picks the part of the image used for the small theme tile on Jim's homepage.",
   "themes": [
     {
       "id": "planet",
@@ -69,9 +69,8 @@
       "id": "uncertainty",
       "title": "Plans that survive the real world",
       "topic": "temporal",
-      "image": "uncertainty.png",
-      "image_fit": "contain",
-      "image_alt": "A simple temporal network diagram next to the 3D polytope of its possible schedules",
+      "image": "uncertainty.jpg",
+      "image_alt": "A student adjusting the wrist of a red Sawyer robot arm, with planning diagrams on the whiteboard behind her",
       "blurb": "Robots slip and people run late. We develop the math and algorithms behind temporal plans that stay flexible, durable, and controllable when things don't go as expected.",
       "projects": [
         {
