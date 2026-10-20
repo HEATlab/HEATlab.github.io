@@ -91,10 +91,16 @@ def open_eye(x, ey, face):
             f'stroke-linecap="round"/>')
 
 
-def robot(x0, ink, face, body, eye="wink", animate=False):
+def ear_tabs(hx, hy, face):
+    """Optional ears: small rounded gold tabs on the sides of the head (drawn under it)."""
+    return (f'<rect x="{hx - 57}" y="{hy - 14}" width="16" height="28" rx="6" fill="{face}"/>'
+            f'<rect x="{hx + 41}" y="{hy - 14}" width="16" height="28" rx="6" fill="{face}"/>')
+
+
+def robot(x0, ink, face, body, eye="wink", animate=False, ears=True):
     """The robot "A"; x0 is where the E ends. eye: "wink" (logo) or "open". animate: blink the wink."""
     bx = x0 + 45                     # left edge of the HMC body
-    hx, hy = bx + 55, 60             # head center
+    hx, hy = bx + 55, 55             # head center (a small neck gap above the body)
     ey = hy - 9                      # eye line
     line = lambda x1, y1, x2, y2: (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{ink}" '
                                    f'stroke-width="20" stroke-linecap="round"/>')
@@ -107,13 +113,14 @@ def robot(x0, ink, face, body, eye="wink", animate=False):
   <g transform="rotate(-7 {hx} {hy})">
     <line x1="{hx + 4}" y1="{hy - 29}" x2="{hx + 8}" y2="{hy - 48}" stroke="{ink}" stroke-width="6" stroke-linecap="round"/>
     <circle cx="{hx + 9}" cy="{hy - 53}" r="7.5" fill="{face}"/>
+    {ear_tabs(hx, hy, face) if ears else ""}
     <rect x="{hx - 48}" y="{hy - 29}" width="96" height="58" rx="17" fill="{ink}"/>
     <path d="{gear(hx - 15, ey, 11.5, 8.3, 8, 3.8)}" fill="{face}" fill-rule="evenodd"/>
     {right_eye}
     <path d="M{hx - 10} {ey + 20} Q{hx + 1} {ey + 29} {hx + 12} {ey + 20}" fill="none" stroke="{face}" stroke-width="5" stroke-linecap="round"/>
   </g>
-  {line(bx - 11, 114, bx - 27, 186)}
-  {line(bx + 122, 112, bx + 139, 180)}
+  {line(bx - 14, 119, bx - 30, 189)}
+  {line(bx + 125, 117, bx + 142, 185)}
   {line(bx + 21, 222, bx + 18, 248)}
   {line(bx + 88, 222, bx + 92, 248)}
   <image href="{body}" x="{bx - 1}" y="92" width="112" height="112"/>
@@ -145,29 +152,52 @@ MODES = {"light": dict(letters=INK, ink=INK, tag=INK, body=BODY["light"]),
          "dark": dict(letters="#ffffff", ink=LIGHT, tag="#c9ced6", body=BODY["dark"])}
 
 
-def logo_svg(mode, animate=False):
+def logo_svg(mode, animate=False, ears=True):
     m = MODES[mode]
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -12 {WIDTH + 20:.0f} 357" role="img" '
             f'aria-label="HEATlab: human experience &amp; agent teamwork laboratory @ harvey mudd">'
             + (WINK_CSS if animate else "") +
-            f'<path d="{HE}" fill="{m["letters"]}"/>{robot(RX, m["ink"], GOLD, m["body"], animate=animate)}'
+            f'<path d="{HE}" fill="{m["letters"]}"/>{robot(RX, m["ink"], GOLD, m["body"], animate=animate, ears=ears)}'
             f'<path d="{T}" fill="{m["letters"]}"/><path d="{LAB}" fill="{m["letters"]}"/><path d="{TAG}" fill="{m["tag"]}"/></svg>')
 
 
-def robot_svg(mode, animate=False, eye="wink"):
+def letters_svg(mode):
+    """The logo without the robot (same viewBox): the header lays the robot over the gap so it can grow on its own."""
+    m = MODES[mode]
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -12 {WIDTH + 20:.0f} 357" role="img" '
+            f'aria-label="HEATlab: human experience &amp; agent teamwork laboratory @ harvey mudd">'
+            f'<path d="{HE}" fill="{m["letters"]}"/><path d="{T}" fill="{m["letters"]}"/>'
+            f'<path d="{LAB}" fill="{m["letters"]}"/><path d="{TAG}" fill="{m["tag"]}"/></svg>')
+
+
+def layer_svg(mode, part):
+    """One layer of the logo (same viewBox as the full logo): "he", "tlab" or "tagline". The header stacks
+    these with the robot so the letters can part as the robot grows."""
+    m = MODES[mode]
+    body = {"he": f'<path d="{HE}" fill="{m["letters"]}"/>',
+            "tlab": f'<path d="{T}" fill="{m["letters"]}"/><path d="{LAB}" fill="{m["letters"]}"/>',
+            "tagline": f'<path d="{TAG}" fill="{m["tag"]}"/>'}[part]
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -12 {WIDTH + 20:.0f} 357">{body}</svg>'
+
+
+def robot_svg(mode, animate=False, eye="wink", ears=True):
     m = MODES[mode]
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{RX + 4:.0f} -8 210 270" role="img" aria-label="A">'
-            + (WINK_CSS if animate else "") + robot(RX, m["ink"], GOLD, m["body"], eye=eye, animate=animate) + '</svg>')
+            + (WINK_CSS if animate else "") + robot(RX, m["ink"], GOLD, m["body"], eye=eye, animate=animate, ears=ears) + '</svg>')
 
 
-def icon_svg(bg, ink, eye="wink"):
-    """Square icon: the head only (favicon, avatar). bg "none" for transparent."""
-    hx, hy = 60, 64
+def icon_svg(bg, ink, eye="wink", ears=True):
+    """Square icon: the head with its antenna (favicon, avatar). bg "none" for transparent."""
+    hx, hy = 60, 70
     ey = hy - 9
     right = wink_eye(hx + 16, ey, GOLD) if eye == "wink" else open_eye(hx + 16, ey, GOLD)
     tile = f'<rect width="120" height="120" rx="26" fill="{bg}"/>' if bg != "none" else ""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="HEATlab">{tile}'
-            f'<g transform="translate(60 62) scale(1.05) translate(-60 -62)">'
+            f'<g transform="translate(60 60) scale(.98) translate(-60 -60)">'
+            f'<line x1="{hx + 2}" y1="{hy - 29}" x2="{hx + 2}" y2="{hy - 46}" stroke="{ink}" stroke-width="6" stroke-linecap="round"/>'
+            + (f'<circle cx="{hx + 2}" cy="{hy - 51}" r="7" fill="{GOLD}" stroke="{ink}" stroke-width="3"/>' if bg == GOLD   # gold on gold needs a ring
+               else f'<circle cx="{hx + 2}" cy="{hy - 51}" r="7.5" fill="{GOLD}"/>')
+            + (ear_tabs(hx, hy, ink if bg == GOLD else GOLD) if ears else "") +
             f'<rect x="{hx - 48}" y="{hy - 29}" width="96" height="58" rx="17" fill="{ink}"/>'
             f'<path d="{gear(hx - 15, ey, 11.5, 8.3, 8, 3.8)}" fill="{GOLD}" fill-rule="evenodd"/>{right}'
             f'<path d="M{hx - 10} {ey + 20} Q{hx + 1} {ey + 29} {hx + 12} {ey + 20}" fill="none" stroke="{GOLD}" stroke-width="5" stroke-linecap="round"/>'
@@ -180,6 +210,10 @@ def svgs():
         "heatlab-logo-dark.svg": logo_svg("dark"),
         "heatlab-logo-wink.svg": logo_svg("light", animate=True),
         "heatlab-logo-wink-dark.svg": logo_svg("dark", animate=True),
+        "heatlab-letters.svg": letters_svg("light"),
+        "heatlab-letters-dark.svg": letters_svg("dark"),
+        **{f"heatlab-{part}{sfx}.svg": layer_svg(mode, part)
+           for part in ("he", "tlab", "tagline") for mode, sfx in (("light", ""), ("dark", "-dark"))},
         "heatbot.svg": robot_svg("light"),
         "heatbot-dark.svg": robot_svg("dark"),
         "heatbot-wink.svg": robot_svg("light", animate=True),
@@ -252,6 +286,9 @@ def open_logo(mode):
 
 if __name__ == "__main__":
     made = svgs()
+    # where the robot sits inside the logo, as fractions of the logo box (for the header CSS)
+    vw, vh = WIDTH + 20, 357
+    print(f"robot box in logo: left {(RX + 14) / vw:.4%} top {4 / vh:.4%} width {210 / vw:.4%} height {270 / vh:.4%}")
     print(f"{len(made)} SVGs -> {OUT.relative_to(ROOT)}/")
     if "--png" in sys.argv:
         rasters()

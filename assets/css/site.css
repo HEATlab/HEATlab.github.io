@@ -41,11 +41,20 @@ section { padding: 72px 0; }
 
 /* --- Top bar --- */
 .topbar { position: sticky; top: 0; z-index: 10; background: var(--topbar); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; transition: height .3s ease; }
-.brand img { display: block; height: 38px; width: auto; transition: height .3s ease; }
-/* At the top of the page the bar and logo are larger; they shrink once the page scrolls (js/site.js adds .scrolled) */
-.topbar:not(.scrolled) .topbar-inner { height: 96px; }
-.topbar:not(.scrolled) .brand img { height: 70px; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.brand { position: relative; display: block; flex: none; }
+.brand img { display: block; height: 38px; width: auto; }
+/* The logo is stacked layers with the same box (tools/build_logo.py): the tagline sets the size, "HE", "Tlab"
+   and the robot sit on top. At the top of the page the robot grows and hangs below the bar while HE and Tlab
+   part to make room; everything tucks back in once the page scrolls (js/site.js adds .scrolled). */
+.brand-he, .brand-tlab { position: absolute; inset: 0; transition: transform .35s cubic-bezier(.4, 0, .2, 1); }
+.brand-he img, .brand-tlab img { width: 100%; height: 100%; }
+.brand-bot { position: absolute; left: 35.32%; top: 1.12%; width: 19.07%; height: 75.63%;
+    transform-origin: 50% 8%; transition: transform .35s cubic-bezier(.4, 0, .2, 1), filter .35s; }
+.brand-bot img { width: 100%; height: 100%; }
+.topbar:not(.scrolled) .brand-bot { transform: scale(2.7); filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .25)); }
+.topbar:not(.scrolled) .brand-he { transform: translateX(-14px); }
+.topbar:not(.scrolled) .brand-tlab { transform: translateX(14px); }
 .topbar nav { display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; }
 .topbar nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
 .topbar nav a:hover { background: var(--band); }
@@ -198,8 +207,9 @@ section { padding: 72px 0; }
 @media (max-width: 560px) {
     .wrap { padding: 0 16px; }
     .brand img { height: 28px; }
-    .topbar:not(.scrolled) .topbar-inner { height: 74px; }
-    .topbar:not(.scrolled) .brand img { height: 46px; }
+    .topbar:not(.scrolled) .brand-bot { transform: scale(2.2); }
+    .topbar:not(.scrolled) .brand-he { transform: translateX(-9px); }
+    .topbar:not(.scrolled) .brand-tlab { transform: translateX(9px); }
     .topbar-inner { gap: 8px; }
     .topbar nav { gap: 2px; }
     .topbar nav a { padding: 6px 7px; font-size: .88rem; }
@@ -263,4 +273,28 @@ section { padding: 72px 0; }
     .theme img.contain { filter: none; }
 }
 
-@media (prefers-reduced-motion: reduce) { .topbar-inner, .brand img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .brand-bot, .brand-he, .brand-tlab { transition: none; } }
+
+/* --- Robot-head buttons: gold pills wear the logo's antenna; on hover it wiggles and the LED lights --- */
+.topbar nav { padding-top: 10px; margin-top: -10px; }           /* room for the antenna (nav scrolls sideways, which clips) */
+.nav-join, .show-all { position: relative; overflow: visible; }
+.nav-join::before, .show-all::before {                          /* stem */
+    content: ""; position: absolute; left: 57%; bottom: 100%; width: 2px; height: 4px; margin-left: -1px;
+    background: var(--on-gold); border-radius: 1px; transform-origin: 50% 100%; transition: transform .2s; }
+.nav-join::after, .show-all::after {                            /* LED */
+    content: ""; position: absolute; left: 57%; bottom: calc(100% + 3px); width: 6px; height: 6px; margin-left: -3px;
+    background: var(--gold); border: 1.5px solid var(--on-gold); border-radius: 50%; transform-origin: 50% 9px;
+    transition: transform .2s, box-shadow .2s; }
+.nav-join:hover::before, .show-all:hover::before, .nav-join:hover::after, .show-all:hover::after { animation: antenna-wiggle .6s ease-in-out; }
+.nav-join:hover::after, .show-all:hover::after { box-shadow: 0 0 0 3px rgba(253, 185, 19, .35), 0 0 8px 2px rgba(253, 185, 19, .6); }
+@keyframes antenna-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 60% { transform: rotate(10deg); } }
+@media (prefers-color-scheme: dark) { .nav-join::before, .show-all::before { background: #e6e9ed; } .nav-join::after, .show-all::after { border-color: #e6e9ed; } }
+@media (prefers-reduced-motion: reduce) { .nav-join:hover::before, .show-all:hover::before, .nav-join:hover::after, .show-all:hover::after { animation: none; } }
+
+/* --- A gear for the "o" in gold buttons (Join?, Show all): sized like the font's o, drawn in the text color.
+   The real "o" stays (hidden) for screen readers and copy/paste. --- */
+.gear-o { display: inline; }
+.gear-o svg { display: inline-block; width: .64em; height: .64em; margin: 0 .01em; vertical-align: -.07em; fill: currentColor; transition: transform .6s ease; }
+.gear-o-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.nav-join:hover .gear-o svg, .show-all:hover .gear-o svg { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .gear-o svg { transition: none; } }
