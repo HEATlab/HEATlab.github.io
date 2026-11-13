@@ -138,3 +138,41 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project-papers a').forEach(a => a.addEventListener('click', () => { showAll(); filter(''); }));
     filter('');
 });
+
+/* ---- Analytics events: which links people click and which sections they reach ----
+   Sends GA4 events (names show up under Reports > Engagement > Events without setup):
+   pdf_click, email_click, profile_click, doi_click, cite_click, bib_download,
+   and view_<section id> the first time a section scrolls into view. */
+(function () {
+    if (typeof window.gtag !== 'function') return;
+    var send = function (name, params) {
+        try { window.gtag('event', name, Object.assign({ transport_type: 'beacon' }, params || {})); } catch (e) {}
+    };
+    var PROFILES = /github\.com|scholar\.google|linkedin\.com|researchgate\.net|orcid\.org|bsky\.app/i;
+    document.addEventListener('click', function (e) {
+        var el = e.target.closest ? e.target.closest('a, button') : null;
+        if (!el) return;
+        var href = el.getAttribute('href') || '';
+        var label = (el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100);
+        var p = { link_url: href.slice(0, 300), link_text: label };
+        if (/\.pdf(\?|#|$)/i.test(href)) send('pdf_click', p);
+        else if (/^mailto:/i.test(href)) send('email_click', { link_text: label });
+        else if (PROFILES.test(href)) send('profile_click', p);
+        else if (/doi\.org\//i.test(href)) send('doi_click', p);
+        else if (/\.bib(\?|#|$)/i.test(href)) send('bib_download', p);
+        else if (/\bcite\b/i.test(label) || el.hasAttribute('data-cite')) send('cite_click', p);
+    }, true);
+    if (!('IntersectionObserver' in window)) return;
+    var seen = {};
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+            var id = en.target.id;
+            if (en.isIntersecting && !seen[id]) {
+                seen[id] = true;
+                send('view_' + id.replace(/[^a-z0-9_]/gi, '_'));
+                io.unobserve(en.target);
+            }
+        });
+    }, { threshold: 0.25 });
+    document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+})();
