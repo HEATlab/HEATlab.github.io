@@ -298,8 +298,9 @@
         "MAD about Fluency"
       ],
       "photo": "tiffany.png",
-      "now": "",
-      "degrees": []
+      "now": "Staff Product Manager, Meta",
+      "degrees": [],
+      "linkedin": "https://www.linkedin.com/in/tiffanymadruga"
     },
     {
       "name": "Athena Paraskevas-Nevius",
@@ -441,7 +442,7 @@
         "PolyBots!"
       ],
       "photo": "amy.jpg",
-      "now": "Software Engineer",
+      "now": "Software Engineer, Google",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/amy-huang-6a4996b0"
     },
@@ -508,7 +509,7 @@
         "Robot Brunch"
       ],
       "photo": "sam_d.png",
-      "now": "FPGA Engineer, Microsoft",
+      "now": "Principal Software Engineer, Microsoft",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/samuel-dietrich-9a54841ab"
     },
@@ -625,7 +626,7 @@
         "PaWPal"
       ],
       "photo": "honey.png",
-      "now": "Machine Learning Engineer, Allegheny County Department of Human Services",
+      "now": "Lead Machine Learning Engineer, Allegheny County Department of Human Services",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/rosenbloom-boom"
     },
