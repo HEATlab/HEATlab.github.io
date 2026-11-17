@@ -100,7 +100,7 @@
         "Improvisational Teamwork"
       ],
       "photo": "malia.jpg",
-      "now": "Predoctoral Young Investigator, AllenNLP, Ai2",
+      "now": "Predoctoral Young Investigator, Ai2",
       "degrees": [],
       "linkedin": "https://www.linkedin.com/in/malia-morgan-b5a8b0338"
     },
@@ -255,9 +255,9 @@
         "Prob-in-Ctrl"
       ],
       "photo": "savana.jpg",
-      "now": "Computational Mathematician, Mobius Logic",
+      "now": "Computational Mathematician, Mobius Logic Inc.",
       "degrees": [
-        "PhD, University of Illinois Urbana-Champaign"
+        "PhD, Mathematics, University of Illinois Urbana-Champaign, 2025"
       ],
       "linkedin": "https://www.linkedin.com/in/savana-ammons"
     },
@@ -358,9 +358,10 @@
         "Prob-in-Ctrl"
       ],
       "photo": null,
-      "now": "",
+      "now": "Postdoctoral Researcher, Max Planck Institute for Informatics",
       "degrees": [
-        "PhD, Computer Science, MIT, 2024"
+        "PhD, Computer Science, MIT, 2024",
+        "MS, Computer Science, MIT, 2021"
       ],
       "website": "https://www.shyanakmal.com/"
     },
@@ -428,11 +429,12 @@
         "Human-Robot Teamwork"
       ],
       "photo": "brenda.jpg",
-      "now": "Licensed Mental Health Counselor, Good Therapy NYC",
+      "now": "Therapist, Good Therapy NYC",
       "degrees": [
-        "MEd, Mental Health Counseling, Hunter College, 2023"
+        "MSEd, Mental Health Counseling, Hunter College (CUNY), 2023"
       ],
-      "linkedin": "https://www.linkedin.com/in/bvcastro"
+      "linkedin": "https://www.linkedin.com/in/bvcastro",
+      "website": "https://bvcastro.com/"
     },
     {
       "name": "Kharisma Calderon",
@@ -458,7 +460,7 @@
       "linkedin": "https://www.linkedin.com/in/amy-huang-6a4996b0"
     },
     {
-      "name": "Liam Lloyd",
+      "name": "Liam Lloyd-Tucker",
       "year": 2018,
       "college": null,
       "projects": [
@@ -468,6 +470,7 @@
       "now": "Senior Software Engineer, Permanent Legacy Foundation",
       "degrees": [],
       "published_as": [
+        "Liam Lloyd",
         "William Lloyd"
       ],
       "linkedin": "https://www.linkedin.com/in/liam-lloyd-tucker-583613196"
@@ -606,9 +609,9 @@
         "PaWPal"
       ],
       "photo": "priya.png",
-      "now": "Assistant Professor, MIT EECS & LIDS",
+      "now": "Assistant Professor, MIT; Co-founder and Chair, Climate Change AI",
       "degrees": [
-        "PhD, Computer Science & Public Policy, Carnegie Mellon"
+        "PhD, Computer Science & Public Policy, Carnegie Mellon, 2022"
       ],
       "linkedin": "https://www.linkedin.com/in/priya-donti",
       "website": "https://priyadonti.com/"
