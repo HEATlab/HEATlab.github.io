@@ -14,11 +14,12 @@
       "projects": [
         "MAD about Fluency"
       ],
-      "photo": null,
+      "photo": "julia.jpg",
       "degrees": [
         "MBAn (in progress), MIT Sloan"
       ],
-      "linkedin": "https://www.linkedin.com/in/julia-hansen-5613621a7"
+      "linkedin": "https://www.linkedin.com/in/julia-lise-hansen",
+      "website": "https://github.com/juliahansen3"
     },
     {
       "name": "Rosy Chen",
@@ -599,8 +600,11 @@
       ],
       "photo": "emma.jpg",
       "now": "Software Engineer, Google",
-      "degrees": [],
-      "linkedin": "https://www.linkedin.com/in/emma-meersman-96380855"
+      "degrees": [
+        "MS, Human-Centered Design and Engineering, University of Washington, 2020"
+      ],
+      "linkedin": "https://www.linkedin.com/in/emma-meersman-96380855",
+      "website": "https://emmameersman.com/"
     },
     {
       "name": "Priya Donti",
